@@ -176,13 +176,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 .cb-foto video.listo{opacity:.95}
 .cb-foto::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(12,11,10,.1),rgba(12,11,10,.9));
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,
+    rgba(12,11,10,.05) 26%,
+    rgba(12,11,10,.55) 54%,
+    rgba(12,11,10,.88) 76%,
+    rgba(12,11,10,.97) 100%);
 }
 .cb-txt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 18px 16px}
 .cb-num{font-family:var(--serif);font-size:.8rem;color:var(--oro);letter-spacing:.24em}
 .cb-tit{font-family:var(--serif);font-weight:500;font-size:1.95rem;line-height:1.02;margin:.1em 0 .22em}
-.cb-sub{font-size:.74rem;color:var(--tenue);letter-spacing:.05em}
+.cb-sub{font-size:.74rem;color:var(--crema);opacity:.82;letter-spacing:.05em}
+.cb-num,.cb-tit,.cb-sub{text-shadow:0 1px 3px rgba(0,0,0,.85),0 3px 18px rgba(0,0,0,.8)}
 .cb-ver{
   display:flex;align-items:center;justify-content:space-between;
   padding:13px 18px;border-top:1px solid var(--linea2);
@@ -364,6 +369,42 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 .pie small{display:block;margin-top:14px;font-size:.62rem;opacity:.6;letter-spacing:.04em;text-transform:none}
 
+/* --- visor: toca una foto y se ve en grande --- */
+.it-ph img,.fav-foto img{cursor:zoom-in}
+body.sin-scroll{overflow:hidden}
+#visor{
+  position:fixed;inset:0;z-index:80;display:none;
+  align-items:center;justify-content:center;padding:20px;
+  background:rgba(8,7,6,.95);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+#visor.abierto{display:flex;animation:fadeIn .22s ease both}
+#visor figure{max-width:min(94vw,780px);text-align:center;cursor:zoom-out}
+#visor img{
+  width:100%;max-height:70vh;object-fit:contain;border-radius:14px;
+  border:1px solid var(--linea2);box-shadow:0 30px 70px rgba(0,0,0,.75);
+  animation:surge .35s ease both;
+}
+#visor figcaption{margin-top:18px}
+#visor figcaption b{
+  display:block;font-family:var(--serif);font-weight:600;
+  font-size:1.5rem;color:var(--crema);line-height:1.2;
+}
+#visor figcaption span{
+  display:block;font-family:var(--serif);font-weight:600;
+  font-size:1.3rem;color:var(--oro);margin-top:6px;
+}
+#visor figcaption i{
+  display:block;font-style:normal;font-size:.62rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--tenue);margin-top:14px;
+}
+.visor-x{
+  position:absolute;top:14px;right:14px;z-index:2;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--carbon);border:1px solid var(--linea2);color:var(--crema);font-size:1rem;
+}
+.visor-x:hover{background:var(--carbon2);border-color:var(--linea)}
+
 .arriba{
   position:fixed;right:16px;bottom:16px;z-index:40;
   width:46px;height:46px;border-radius:50%;
@@ -464,6 +505,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 <button class="arriba" id="btnArriba" aria-label="Subir">↑</button>
 
+<div id="visor" aria-hidden="true">
+  <button class="visor-x" id="visorX" aria-label="Cerrar">✕</button>
+  <figure>
+    <img id="visorImg" src="" alt="">
+    <figcaption>
+      <b id="visorNom"></b>
+      <span id="visorPre"></span>
+      <i>Toca para cerrar</i>
+    </figcaption>
+  </figure>
+</div>
+
 <script>
 /* =======================================================================
    1) AQUÍ PONES TUS DATOS Y TUS FOTOS
@@ -474,7 +527,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "7";
+const VER = "8";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -1294,6 +1347,48 @@ function filtrar(q){
   } else if(m) m.style.display='none';
 }
 inpBusca.addEventListener('input', e=>filtrar(e.target.value));
+
+/* ---------- visor de fotos ---------- */
+const visor = document.getElementById('visor');
+const visorImg = document.getElementById('visorImg');
+
+function abrirVisor(src, nom, pre){
+  visorImg.src = src;
+  document.getElementById('visorNom').textContent = nom || '';
+  document.getElementById('visorPre').textContent = pre || '';
+  visor.classList.add('abierto');
+  visor.setAttribute('aria-hidden','false');
+  document.body.classList.add('sin-scroll');
+}
+function cerrarVisor(){
+  visor.classList.remove('abierto');
+  visor.setAttribute('aria-hidden','true');
+  document.body.classList.remove('sin-scroll');
+  visorImg.src = '';
+}
+document.getElementById('visorX').onclick = cerrarVisor;
+visor.addEventListener('click', cerrarVisor);
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape') cerrarVisor(); });
+
+function tocarFoto(e){
+  const img = e.target.closest('.it-ph img, .fav-foto img');
+  if(!img) return;
+  let nom = '', pre = '';
+  const fila = img.closest('.item');
+  const tarj = img.closest('.fav');
+  if(fila){
+    nom = fila.querySelector('.it-nom').textContent;
+    const p = fila.querySelector('.it-pre');
+    if(p) pre = p.textContent;
+  } else if(tarj){
+    nom = tarj.querySelector('.fav-nom').textContent;
+    const p = tarj.querySelector('.fav-pre');
+    if(p) pre = p.textContent;
+  }
+  abrirVisor(img.src, nom.replace('★','').trim(), pre);
+}
+contenido.addEventListener('click', tocarFoto);
+document.getElementById('favs').addEventListener('click', tocarFoto);
 
 window.addEventListener('scroll', ()=>{
   btnArriba.classList.toggle('ver', window.scrollY>600 && vista.classList.contains('activa'));
