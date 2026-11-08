@@ -103,11 +103,12 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .hero-fondo::after{
   content:'';position:absolute;inset:0;
   background:
-    radial-gradient(72% 42% at 50% 44%,rgba(12,11,10,.74),rgba(12,11,10,0) 72%),
+    radial-gradient(68% 34% at 50% 38%,rgba(12,11,10,.60),rgba(12,11,10,0) 74%),
     linear-gradient(180deg,
-      rgba(12,11,10,.34) 0%,
-      rgba(12,11,10,.44) 38%,
-      rgba(12,11,10,.80) 78%,
+      rgba(12,11,10,.30) 0%,
+      rgba(12,11,10,.34) 42%,
+      rgba(12,11,10,.50) 72%,
+      rgba(12,11,10,.90) 93%,
       var(--negro) 100%);
 }
 .hero-cuerpo{
@@ -533,7 +534,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "9";
+const VER = "10";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
