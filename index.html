@@ -469,6 +469,10 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
    Si una foto no existe, la tarjeta se ve igual de bien (marco dorado).
    ======================================================================= */
 
+/* Sube este número cada vez que reemplaces una foto. Obliga a los
+   navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
+const VER = "3";
+
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
   whatsapp : "522878818488",     // 287 881 8488
@@ -1039,10 +1043,12 @@ const slug = s => limpio(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function marco(){
   return '<div class="sinfoto"><div class="agua"></div></div>';
 }
+const conVer = s => s ? s + (s.indexOf('?') < 0 ? '?v=' + VER : '') : s;
+
 function foto(src){
   const m = marco();
   if(!src) return m;
-  return m + '<img src="' + src + '" alt="" loading="lazy" onerror="this.remove()">';
+  return m + '<img src="' + conVer(src) + '" alt="" loading="lazy" onerror="this.remove()">';
 }
 
 /* ---------- video de fondo ----------
@@ -1067,7 +1073,7 @@ function montarVideo(cont, src){
   v.muted = true; v.defaultMuted = true; v.loop = true;
   v.playsInline = true; v.setAttribute('playsinline','');
   v.setAttribute('muted',''); v.preload = 'none';
-  v.dataset.src = src;
+  v.dataset.src = conVer(src);
   v.addEventListener('error', ()=>{ obsVid.unobserve(v); v.remove(); });
   v.addEventListener('loadeddata', ()=>v.classList.add('listo'));
   cont.appendChild(v);
@@ -1081,7 +1087,7 @@ function montarVideo(cont, src){
   if(CONFIG.fotoPortada){
     const i = new Image();
     i.onload = ()=>{ cont.appendChild(i); requestAnimationFrame(()=>i.classList.add('listo')); };
-    i.src = CONFIG.fotoPortada;
+    i.src = conVer(CONFIG.fotoPortada);
   }
   montarVideo(cont, CONFIG.videoPortada);
 })();
