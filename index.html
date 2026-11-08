@@ -213,6 +213,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .fav-pre{font-family:var(--serif);font-size:1.16rem;color:var(--oro);font-weight:600;margin-top:10px}
 .favs-guia{font-size:.64rem;color:var(--tenue);letter-spacing:.2em;text-transform:uppercase;text-align:center;margin:-10px 0 70px}
 
+/* La foto siempre va ENCIMA del marco dorado. Sin esto el marco la tapa. */
+.cb-foto img,.fav-foto img,.it-ph img{position:absolute;inset:0;z-index:1}
+
 /* --- marcos de foto vacía (se ven bien aunque no haya imagen) --- */
 .sinfoto{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
@@ -471,7 +474,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "3";
+const VER = "4";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -1048,7 +1051,7 @@ const conVer = s => s ? s + (s.indexOf('?') < 0 ? '?v=' + VER : '') : s;
 function foto(src){
   const m = marco();
   if(!src) return m;
-  return m + '<img src="' + conVer(src) + '" alt="" loading="lazy" onerror="this.remove()">';
+  return m + '<img src="' + conVer(src) + '" alt="" onerror="this.remove()">';
 }
 
 /* ---------- video de fondo ----------
