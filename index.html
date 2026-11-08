@@ -6,8 +6,25 @@
 <title>Los Pares 84×88 — Carta</title>
 <meta name="description" content="Carta digital de Los Pares 84×88 — cortes premium en Tuxtepec, Oaxaca. Desayunos, comida, bebidas y boutique de carnes.">
 <meta name="theme-color" content="#0C0B0A">
-<meta property="og:title" content="Los Pares 84×88">
-<meta property="og:description" content="Cortes premium · Tuxtepec, Oaxaca">
+<link rel="canonical" href="https://menu.lospares.com/">
+<!-- Esto es lo que se ve al compartir la liga por WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Los Pares 84×88">
+<meta property="og:url" content="https://menu.lospares.com/">
+<meta property="og:title" content="Los Pares 84×88 — Carta digital">
+<meta property="og:description" content="Cortes premium, parrilla y coctelería en Tuxtepec, Oaxaca. Desayunos, comida, bebidas y boutique de carnes.">
+<meta property="og:image" content="https://menu.lospares.com/og.jpg">
+<meta property="og:image:secure_url" content="https://menu.lospares.com/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Los Pares 84×88 — Carta digital">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Los Pares 84×88 — Carta digital">
+<meta name="twitter:description" content="Cortes premium, parrilla y coctelería en Tuxtepec, Oaxaca.">
+<meta name="twitter:image" content="https://menu.lospares.com/og.jpg">
+<link rel="apple-touch-icon" href="/icono.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230C0B0A'/%3E%3Ctext x='50' y='65' font-size='40' font-family='Georgia,serif' fill='%23C9A227' text-anchor='middle'%3ELP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,10 +93,13 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
     radial-gradient(640px 420px at 92% 72%,rgba(201,162,39,.08),transparent 70%),
     linear-gradient(180deg,#141210 0%,var(--negro) 62%);
 }
-.hero-fondo img{
+.hero-fondo img,.hero-fondo video{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:.34;filter:saturate(.72) contrast(1.06);
+  opacity:0;filter:saturate(.72) contrast(1.06);
+  transition:opacity 1.4s ease;
 }
+.hero-fondo img.listo{opacity:.34}
+.hero-fondo video.listo{opacity:.42}
 .hero-fondo::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(12,11,10,.55),rgba(12,11,10,.82) 55%,var(--negro));
@@ -150,6 +170,11 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cb-foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--negro2)}
 .cb-foto img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1);opacity:.9}
 .carta-btn:hover .cb-foto img{transform:scale(1.06)}
+.cb-foto video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1s ease;filter:saturate(.8) contrast(1.04);
+}
+.cb-foto video.listo{opacity:.95}
 .cb-foto::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(12,11,10,.1),rgba(12,11,10,.9));
@@ -449,7 +474,15 @@ const CONFIG = {
   fotoDesayuno: "fotos/carta-desayuno.jpg",
   fotoComida  : "fotos/carta-comida.jpg",
   fotoBebidas : "fotos/carta-bebidas.jpg",
-  fotoBoutique: "fotos/carta-boutique.jpg"
+  fotoBoutique: "fotos/carta-boutique.jpg",
+
+  // VIDEOS — carpeta videos/ junto a este archivo. Van en silencio y en bucle.
+  // Si el archivo no existe, se queda la foto o el marco dorado. No se rompe nada.
+  videoPortada : "videos/portada.mp4",
+  videoDesayuno: "videos/desayuno.mp4",
+  videoComida  : "videos/comida.mp4",
+  videoBebidas : "videos/bebidas.mp4",
+  videoBoutique: ""
 };
 
 /* Los 8 platillos que salen en "De la casa". Cambia foto, nombre o precio. */
@@ -1005,12 +1038,45 @@ function foto(src){
   return m + '<img src="' + src + '" alt="" loading="lazy" onerror="this.remove()">';
 }
 
+/* ---------- video de fondo ----------
+   Sin sonido, en bucle. Solo se descarga cuando se ve en pantalla, y se
+   pausa al salir. Si el archivo no existe, el video se quita solo. */
+const SIN_VIDEO = matchMedia('(prefers-reduced-motion: reduce)').matches ||
+                  (navigator.connection && navigator.connection.saveData);
+
+const obsVid = new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    const v = e.target;
+    if(e.isIntersecting){
+      if(!v.src && v.dataset.src){ v.src = v.dataset.src; }
+      const p = v.play(); if(p) p.catch(()=>{});
+    } else { v.pause(); }
+  });
+},{rootMargin:'120px'});
+
+function montarVideo(cont, src){
+  if(!src || SIN_VIDEO) return null;
+  const v = document.createElement('video');
+  v.muted = true; v.defaultMuted = true; v.loop = true;
+  v.playsInline = true; v.setAttribute('playsinline','');
+  v.setAttribute('muted',''); v.preload = 'none';
+  v.dataset.src = src;
+  v.addEventListener('error', ()=>{ obsVid.unobserve(v); v.remove(); });
+  v.addEventListener('loadeddata', ()=>v.classList.add('listo'));
+  cont.appendChild(v);
+  obsVid.observe(v);
+  return v;
+}
+
 /* ---------- portada: fondo ---------- */
 (function(){
-  if(!CONFIG.fotoPortada) return;
-  const i = new Image();
-  i.onload = ()=>document.getElementById('heroFondo').appendChild(i);
-  i.src = CONFIG.fotoPortada;
+  const cont = document.getElementById('heroFondo');
+  if(CONFIG.fotoPortada){
+    const i = new Image();
+    i.onload = ()=>{ cont.appendChild(i); requestAnimationFrame(()=>i.classList.add('listo')); };
+    i.src = CONFIG.fotoPortada;
+  }
+  montarVideo(cont, CONFIG.videoPortada);
 })();
 
 /* ---------- portada: tarjetas de carta ---------- */
@@ -1019,11 +1085,15 @@ function foto(src){
     desayunos:CONFIG.fotoDesayuno, comida:CONFIG.fotoComida,
     bebidas:CONFIG.fotoBebidas, boutique:CONFIG.fotoBoutique
   };
+  const videos = {
+    desayunos:CONFIG.videoDesayuno, comida:CONFIG.videoComida,
+    bebidas:CONFIG.videoBebidas, boutique:CONFIG.videoBoutique
+  };
   let h='';
   Object.keys(CARTAS).forEach(k=>{
     const c = CARTAS[k];
     h += '<button class="carta-btn" data-carta="'+k+'">'
-      +  '<div class="cb-foto">' + foto(fotos[k], c.ico, c.titulo[0])
+      +  '<div class="cb-foto" data-video="'+k+'">' + foto(fotos[k])
       +  '<div class="cb-txt"><div class="cb-num">'+c.num+'</div>'
       +  '<div class="cb-tit">'+c.titulo+'</div>'
       +  '<div class="cb-sub">'+c.sub+'</div></div></div>'
@@ -1031,6 +1101,10 @@ function foto(src){
   });
   document.getElementById('cartas').innerHTML = h;
   document.querySelectorAll('.carta-btn').forEach(b=>b.onclick=()=>abrir(b.dataset.carta));
+  document.querySelectorAll('.cb-foto[data-video]').forEach(c=>{
+    const v = montarVideo(c, videos[c.dataset.video]);
+    if(v) c.insertBefore(v, c.querySelector('.cb-txt'));
+  });
 })();
 
 /* ---------- portada: favoritos ---------- */
