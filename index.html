@@ -348,6 +348,33 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .it-col b{font-family:var(--serif);font-weight:600;font-size:1.04rem;color:var(--oro)}
 .it-col b.vacio{color:rgba(156,145,132,.38)}
 
+/* --- tarjetas de corte, con la descripción encima de la foto --- */
+.cortes{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:4px}
+@media(min-width:720px){.cortes{grid-template-columns:repeat(3,1fr);gap:14px}}
+.corte{
+  position:relative;border-radius:14px;overflow:hidden;
+  border:1px solid var(--linea2);background:var(--negro2);
+  aspect-ratio:4/3;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .6s ease,transform .6s ease,border-color .4s;
+}
+.corte.visible{opacity:1;transform:none}
+.corte:hover{border-color:var(--linea)}
+.corte img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 1s cubic-bezier(.2,.8,.2,1);
+}
+.corte:hover img{transform:scale(1.05)}
+.corte::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(12,11,10,0) 32%,rgba(12,11,10,.72) 62%,rgba(12,11,10,.95));
+}
+.corte-txt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:12px 13px 12px}
+.corte-nom{font-family:var(--serif);font-weight:600;font-size:1.18rem;line-height:1.1}
+.corte-nota{font-size:.68rem;color:var(--tenue);margin-top:3px;line-height:1.45}
+.corte-pre{font-family:var(--serif);font-weight:600;font-size:1.22rem;color:var(--oro);margin-top:5px}
+@media(min-width:720px){.corte-nom{font-size:1.32rem}.corte-pre{font-size:1.34rem}}
+
 .vacio-busq{text-align:center;color:var(--tenue);padding:56px 0;font-size:.9rem}
 .pie{
   border-top:1px solid var(--linea2);padding:34px 18px 46px;text-align:center;
@@ -1003,18 +1030,18 @@ boutique: {
   titulo:"Boutique", num:"IV", sub:"Cortes para llevar", ico:"carne",
   aviso:"Cortes premium <b>para llevar</b>, empacados al vacío. Pregunta en caja por disponibilidad del día.",
   secciones:[
-    {t:"Se venden por peso", nota:"El precio mostrado es por kilo; se pesa frente a ti.", items:[
-      ["Tomahawk 992 g",1190,"","fotos/tomahawk.jpg"],
-      ["Picaña Prime",699,"","fotos/picana-prime.jpg"],
-      ["Arrachera",649],
-      ["Picaña CAB",599]
+    {t:"Por kilo", tarjetas:true, nota:"Se pesa la pieza frente a ti y se cobra según su peso.", items:[
+      ["Picaña Prime",699,"USDA Prime · precio por kilo","fotos/corte-picana-prime.jpg"],
+      ["Arrachera",649,"Certified Angus Beef · precio por kilo","fotos/corte-arrachera.jpg"],
+      ["Picaña CAB",599,"Certified Angus Beef · precio por kilo","fotos/corte-picana-cab.jpg"]
     ]},
-    {t:"Se venden por pieza", items:[
-      ["Cow Boy 500 g",560,"","fotos/cowboy.jpg"],
-      ["Rib Eye 340 g",357],
-      ["Flap Meat 400 g",320],
-      ["T-Bone 340 g",316],
-      ["New York 340 g",306]
+    {t:"Por pieza", tarjetas:true, items:[
+      ["Tomahawk",1190,"992 g · Certified Angus Beef","fotos/corte-tomahawk.jpg"],
+      ["Cow Boy",560,"510 g · Certified Angus Beef","fotos/corte-cow-boy.jpg"],
+      ["Rib Eye",357,"340 g · Certified Angus Beef","fotos/corte-rib-eye.jpg"],
+      ["Flap Meat",320,"400 g · Certified Angus Beef","fotos/corte-flap-meat.jpg"],
+      ["T-Bone",316,"340 g · Certified Angus Beef","fotos/corte-t-bone.jpg"],
+      ["New York",306,"340 g · Certified Angus Beef","fotos/corte-new-york.jpg"]
     ]}
   ]
 }
@@ -1178,6 +1205,20 @@ function pintar(clave){
     if(s.nota) h += '<div class="sec-nota">'+s.nota+'</div>';
     if(s.dobles) h += '<div class="sec-encab"><span>Copa</span><span>Botella</span></div>';
 
+    /* Secciones en tarjeta: la foto con el nombre y el precio encima */
+    if(s.tarjetas){
+      h += '<div class="cortes">';
+      s.items.forEach(it=>{
+        h += '<article class="corte" data-busca="'+limpio(it[0])+'">'
+          +  (it[3] ? '<img src="'+it[3]+'" alt="'+it[0]+'" loading="lazy" onerror="this.remove()">' : '')
+          +  '<div class="corte-txt"><div class="corte-nom">'+it[0]+'</div>'
+          +  (it[2] ? '<div class="corte-nota">'+it[2]+'</div>' : '')
+          +  '<div class="corte-pre">'+pesos(it[1])+'</div></div></article>';
+      });
+      h += '</div></div>';
+      return;
+    }
+
     s.items.forEach(it=>{
       if(Array.isArray(it)){
         const nom = it[0].replace('★','<span class="estrella">★</span>');
@@ -1203,7 +1244,7 @@ function pintar(clave){
   obsItems = new IntersectionObserver(es=>{
     es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obsItems.unobserve(e.target);} });
   },{rootMargin:'0px 0px -40px 0px'});
-  contenido.querySelectorAll('.item').forEach(el=>obsItems.observe(el));
+  contenido.querySelectorAll('[data-busca]').forEach(el=>obsItems.observe(el));
 
   const secs  = [...contenido.querySelectorAll('.seccion')];
   const chips = [...chipsBox.querySelectorAll('.chip')];
@@ -1247,13 +1288,13 @@ document.getElementById('btnLupa').onclick = ()=>{
 function filtrar(q){
   q = limpio(q.trim());
   let hay=0;
-  contenido.querySelectorAll('.item').forEach(el=>{
+  contenido.querySelectorAll('[data-busca]').forEach(el=>{
     const ok = !q || (el.dataset.busca||'').includes(q);
     el.style.display = ok?'':'none';
     if(ok){ el.classList.add('visible'); hay++; }
   });
   contenido.querySelectorAll('.seccion').forEach(s=>{
-    const vis = [...s.querySelectorAll('.item')].some(i=>i.style.display!=='none');
+    const vis = [...s.querySelectorAll('[data-busca]')].some(i=>i.style.display!=='none');
     s.style.display = vis?'':'none';
   });
   const av = contenido.querySelector('.aviso');
