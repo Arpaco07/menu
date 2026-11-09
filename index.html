@@ -539,7 +539,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "30";
+const VER = "31";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -591,106 +591,57 @@ const CARTAS = {
 
 desayunos: {
   titulo:"Desayunos", num:"I", sub:"Se sirven hasta la 1:00 pm", ico:"cafe",
-  aviso:"Los desayunos se sirven <b>hasta la 1:00 pm</b>.",
+  aviso:"Todos nuestros desayunos incluyen <b>café refill</b>. Se sirven hasta la 1:00 pm.",
   secciones:[
     {t:"Paquetes", nota:"Todos los paquetes incluyen fruta, más café o jugo a elegir.", items:[
-      ["Desayuno Los Pares ★",215,"","fotos/desayuno-los-pares.jpg"],
-      ["Desayuno Omelete Clásico",200],
-      ["Desayuno Omelete Fit",190],
-      ["Desayuno con Huevos al Gusto",180]
+      ["Desayuno Los Pares ★",215,"Huevos revueltos con ropa vieja cocinada lentamente, pico de gallo fresco y frijoles tradicionales.","fotos/desayuno-los-pares.jpg"],
+      ["Omelette Clásico Premium",200,"Huevos rellenos con jamón selecto y mezcla de quesos fundidos, servidos con frijoles refritos."],
+      ["Omelette Fit Gourmet",190,"Claras montadas con espinaca baby y queso ligero, opción equilibrada y refinada."],
+      ["Huevo al Gusto",180,"Tres huevos de libre pastoreo preparados a elección, con jamón artesanal, tocino crujiente o longaniza tradicional, acompañados de frijoles refritos de la casa."]
     ]},
-    {t:"Huevos", items:[
-      ["Huevos Motuleños",165],
-      ["Huevos Rancheros",145],
-      ["Huevos Sorpresa",145],
-      ["Salsa de Huevo",140],
-      ["Huevos Divorciados",135],
-      ["Huevos Revueltos",125],
-      ["Extra de huevo",12]
+    {t:"De la granja", items:[
+      ["Motuleños",165,"Tortilla frita crujiente con frijoles refritos, huevos estrellados, salsa tatemada, jamón dorado, chícharos y queso gouda."],
+      ["Huevos Sorpresa",145,"Pan integral artesanal con huevo estrellado, jamón, mezcla de quesos y espinaca fresca, coronado con aguacate."],
+      ["Huevos Rancheros Premium",145,"Huevos estrellados sobre tortilla dorada con costra de queso, bañados en salsa tatemada y acompañados de chorizo y aguacate."],
+      ["Salsa de Huevo Tradicional",140,"Huevos revueltos en salsa roja tatemada con chorizo artesanal y el toque distintivo de la casa."],
+      ["Huevos Divorciados",135,"Huevos estrellados bañados en salsa roja y verde, acompañados de frijoles tradicionales y guarnición fresca."]
     ]},
-    {t:"Chilaquiles y enchiladas", items:[
-      ["Chilaquiles Especiales con Arrachera ★",205,"","fotos/chilaquiles-arrachera.jpg"],
-      ["Chilaquiles Especiales con Pollo",195],
-      ["Chilaquiles Blancos Especiales con Pollo",165],
-      ["Enfrijoladas Los Pares",195],
-      ["Enchiladas de Mole",180],
-      ["Enchiladas Suizas ★",125,"","fotos/enchiladas-suizas.jpg"],
-      ["Enchiladas Suizas Blancas",125],
-      ["Entomatadas",125]
+    {t:"Para el antojo", items:[
+      ["Quesabirrias",209,"Con queso gratinado y carne de birria que te sorprenderá."],
+      ["Chilaquiles Especiales con Arrachera ★",205,"Totopos crujientes en salsa verde, roja o blanca, con cebolla, crema y queso.","fotos/chilaquiles-arrachera.jpg"],
+      ["Chilaquiles Especiales con Pollo",195,"Totopos crujientes en salsa verde, roja o blanca, con cebolla, crema y queso."],
+      ["Enfrijoladas Los Pares",195,"Tortillas rellenas de arrachera bañadas en salsa de frijol negro y queso fresco."],
+      ["Enchiladas de Mole Oaxaqueño",180,"Mole tradicional de receta ancestral, acompañado de queso, crema y cebolla."],
+      ["Pan Francés de la Casa ★",160,"Pan brioche sumergido en mezcla aromática, dorado y servido con frutas y miel.","fotos/pan-frances.jpg"],
+      ["Enchiladas Suizas ★",125,"Rellenas de jamón, pollo o huevo, bañadas en salsa especial roja o verde, con crema y queso gratinado.","fotos/enchiladas-suizas.jpg"],
+      ["Enchiladas Suizas Blancas",125,"Salsa blanca cremosa con delicado toque de habanero, gratinadas al momento."],
+      ["Entomatadas Caseras",125,"Bañadas en salsa de tomate tatemado, rellenas de jamón o pollo."],
+      ["Sincronizadas Gourmet",115,"Tortilla de harina rellena de jamón y queso, con aderezo especial de la casa."],
+      ["Hot Cakes con Tocino",115,"Esponjosos hot cakes preparados al momento, con tocino crujiente."],
+      ["Avocado Toast Premium",110,"Pan tostado artesanal con aguacate fresco, queso y especias selectas."],
+      ["Hot Cakes Sencillos ★",105,"Esponjosos hot cakes preparados al momento.","fotos/hot-cakes.jpg"]
     ]},
-    {t:"Antojitos", items:[
-      ["Gordita Especial",125],
-      ["Sincronizadas",115],
-      ["Molletes",100],
-      ["Gordita de Carne",100],
-      ["Gorditas de Pollo",95],
-      ["Picaditas de Carne",95],
-      ["Picaditas de Pollo",90],
-      ["Orden de Empanadas de Carne",90],
-      ["Orden de Empanadas de Pollo",85],
-      ["Orden de Empanadas de Queso",80]
-    ]},
-    {t:"Dulce y pan", items:[
-      ["Pan Francés ★",160,"","fotos/pan-frances.jpg"],
-      ["Hot Cakes con Tocino",115],
-      ["Avocado Toast",110],
-      ["Hot Cakes Sencillos ★",105,"","fotos/hot-cakes.jpg"],
-      ["Plátanos Fritos",70],
-      ["Pan Dulce",30]
+    {t:"Antojitos jarochos", items:[
+      ["Gorditas Especiales",125,"Rellenas de frijol, queso y carne molida, acompañadas de ensalada fresca y crema."],
+      ["Gorditas Veracruzanas",100,"Clásica gordita rellena de carne o pollo con sazón tradicional."],
+      ["Orden de Picaditas de Carne",95,"Base crujiente con proteína a elegir y salsa casera."],
+      ["Empanadas Artesanales de Carne",90,"3 piezas · Rellenas de queso fundente, pollo especiado o carne tradicional, doradas al momento."],
+      ["Orden de Picaditas de Pollo",90,"Base crujiente con proteína a elegir y salsa casera."],
+      ["Empanadas Artesanales de Pollo",85,"3 piezas · Doradas al momento."],
+      ["Empanadas Artesanales de Queso",80,"3 piezas · Doradas al momento."],
+      ["Plátanos Fritos",70,"Plátano macho dorado acompañado de crema y queso fresco."]
     ]},
     {t:"Emparedados", items:[
-      ["Emparedado de Arrachera",310],
-      ["Club Sandwich",175],
-      ["Emparedado Argentino",165],
-      ["Emparedado de Jamón y Queso",140]
+      ["Emparedado de Arrachera",310,"Baguette crujiente con arrachera, mezcla de quesos y aderezo gourmet."],
+      ["Club Sandwich",175,"Pechuga, tocino, jamón, queso, aguacate y aderezo especial."],
+      ["Emparedado de Chorizo Argentino",165,"Pan artesanal con chorizo al grill, mozzarella y salsa tártara."],
+      ["Emparedado de Jamón y Queso Clásico",140,"Pan de la casa, jamón de pavo, queso mozzarella y salsa de la casa."]
     ]},
-    {t:"Ensaladas y fruta", items:[
-      ["Ensalada Pera y Manzana",176],
-      ["Ensalada César",176],
-      ["Ensalada de Frutos Rojos",143],
-      ["Platón de Fruta con Yogurt y Avena",85],
-      ["Platón de Fruta Sencillo",65],
-      ["Coctel de Frutas",65]
-    ]},
-    {t:"Platos fuertes", nota:"También disponibles en la carta de desayuno.", items:[
-      ["Rib Eye con Queso",308],
-      ["Hamburguesa Los Pares",210],
-      ["Quesabirrias",209],
-      ["Carbonara",209],
-      ["Birriamen",176],
-      ["Birria",154]
-    ]},
-    {t:"Café y bebidas calientes", items:[
-      ["Capuchino de Sabor",85],
-      ["Capuchino ★",65,"","fotos/capuchino.jpg"],
-      ["Lechero",55],
-      ["Expreso",50],
-      ["Té de Hierbabuena",35],
-      ["Té de Limón",35],
-      ["Té de Manzanilla",35]
-    ]},
-    {t:"Bebidas frías", items:[
-      ["Jarra de Fresada",215],
-      ["Malteada de Chocolate",80],
-      ["Malteada de Vainilla",80],
-      ["Malteada de Fresa",80],
-      ["Choco Banana",75],
-      ["Licuado de Fresa",75],
-      ["Licuado de Plátano",75],
-      ["Jugo Verde",70],
-      ["Fresada",70],
-      ["Chocomilk",65],
-      ["Naranja con Zanahoria",65],
-      ["Jugo de Naranja",55]
-    ]},
-    {t:"Cervezas", items:[
-      ["Michelada Corona",90],
-      ["Michelada Victoria",90],
-      ["Modelo Especial",60],
-      ["Negra Modelo",60],
-      ["Michelob Ultra",50],
-      ["Corona",45],
-      ["Victoria",45]
+    {t:"Ensaladas", items:[
+      ["Ensalada Caribeña",185,"Fresas, durazno, pollo a la parrilla, nuez tostada y queso de cabra con vinagreta de pera."],
+      ["César Suprema",180,"Lechugas frescas con pollo grillado, parmesano y crotones artesanales."],
+      ["Ensalada de Pera y Manzana",180,"Lechugas mixtas con fruta fresca, queso de cabra y arándanos."],
+      ["Frutos Rojos y Panela Asada",143,"Mix de lechugas con queso panela dorado, vinagreta de miel y frutos rojos."]
     ]}
   ]
 },
