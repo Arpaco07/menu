@@ -534,7 +534,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "23";
+const VER = "24";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -588,7 +588,7 @@ desayunos: {
   titulo:"Desayunos", num:"I", sub:"Se sirven hasta la 1:00 pm", ico:"cafe",
   aviso:"Los desayunos se sirven <b>hasta la 1:00 pm</b>.",
   secciones:[
-    {t:"Paquetes", items:[
+    {t:"Paquetes", nota:"Todos incluyen café, jugo o fruta.", items:[
       ["Desayuno Los Pares ★",215,"","fotos/desayuno-los-pares.jpg"],
       ["Desayuno Omelete Clásico",200],
       ["Desayuno Omelete Fit",190],
@@ -694,7 +694,7 @@ comida: {
   titulo:"Comida", num:"II", sub:"Parrilla, mariscos y más", ico:"carne",
   aviso:"Los <b>cortes</b> se acompañan de chile toreado, cebollín y papas gajo o puré a elegir.",
   secciones:[
-    {t:"Del grill", nota:"Las tlayudas son de temporada; pregunte por su disponibilidad.", items:[
+    {t:"Del grill", items:[
       ["Ojo de Rib Eye 300 g ★",1090,"","fotos/ojo-rib-eye.jpg"],
       ["Tapa de Rib Eye 300 g ★",999],
       ["Cowboy 500 g ★",989,"","fotos/cowboy.jpg"],
@@ -708,10 +708,7 @@ comida: {
       ["New York 340 g",519],
       ["T-Bone 340 g",490],
       ["Arrachera 300 g ★",369,"","fotos/arrachera.jpg"],
-      ["Tlayuda Combinada",290],
-      ["Tlayuda de Arrachera",260],
-      ["Chorizo Argentino 190 g",171],
-      ["Tlayuda de Longaniza",160]
+      ["Chorizo Argentino 190 g",171]
     ]},
     {t:"Tacos", nota:"Van preparados, sin guarnición.", items:[
       ["Taco Gaonera ★",330,"","fotos/gaonera.jpg"],
@@ -723,9 +720,6 @@ comida: {
       ["Tacos de Picaña ★",250,"","fotos/taco-picana.jpg"],
       ["Quesabirria",209],
       ["Tacos de Lengua",205],
-      ["Tlayuda de Arrachera",240],
-      ["Tlayuda Combinada",190],
-      ["Tlayuda de Chorizo",180],
       ["Taco de Arrachera (orden)",77]
     ]},
     {t:"Extras de taco", items:[
