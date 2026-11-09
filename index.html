@@ -362,7 +362,17 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .it-nom{font-size:1rem;font-weight:400;line-height:1.35}
 .it-nom .estrella{color:var(--oro);font-size:.7em;vertical-align:.2em;margin-left:5px}
 .it-nota{font-size:.76rem;color:var(--tenue);margin-top:3px;line-height:1.5}
-.it-pre{font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--oro);white-space:nowrap;flex:none}
+.it-pre{font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--oro);white-space:nowrap;flex:none;text-align:right}
+/* LA MEDIA ORDEN TIENE QUE VERSE.
+   Venia escondida dentro de la descripcion ("Media orden $85 · Receta
+   tradicional..."), en gris de .76rem, igual que el resto del texto. Los
+   meseros cotejaron el menu digital contra el comandero y la dieron por
+   inexistente. (Arturo, 9 nov 2026: "siempre si viene, pero con letras
+   pequeñas".) Ahora va debajo del precio, en su propia etiqueta. */
+.it-media{display:block;font-family:var(--serif);font-size:.72rem;font-weight:600;
+  color:var(--oro);margin-top:5px;padding:2px 7px;border-radius:999px;
+  border:1px solid rgba(190,154,86,.38);background:rgba(190,154,86,.10);
+  letter-spacing:.2px}
 .it-doble{display:flex;gap:16px;flex:none;text-align:right}
 .it-col{min-width:70px}
 .it-col b{font-family:var(--serif);font-weight:600;font-size:1.04rem;color:var(--oro)}
@@ -1072,6 +1082,17 @@ function pintar(clave){
   if(carta.aviso){
     h += '<div class="aviso"><div class="aviso-ico">✦</div><div class="aviso-txt">'+carta.aviso+'</div></div>';
   }
+  /* Separa la media orden de la descripcion. Se escribio durante meses como
+     "Media orden $85 · lo que sea", asi que en vez de reescribir los platillos
+     uno por uno, se lee de ahi y se pinta aparte: los que ya existen quedan
+     bien solos y los que se agreguen despues pueden seguir la misma forma. */
+  function mediaOrden(desc){
+    if(!desc) return {precio:0, resto:''};
+    const m = desc.match(/^\s*Media orden\s*\$?\s*([\d,]+(?:\.\d+)?)\s*(?:·|-|–|\.)?\s*/i);
+    if(!m) return {precio:0, resto:desc};
+    return { precio: Number(String(m[1]).replace(/,/g,'')), resto: desc.slice(m[0].length).trim() };
+  }
+
   carta.secciones.forEach((s,i)=>{
     h += '<div class="seccion" id="sec-'+slug(s.t)+'-'+i+'">';
     h += '<div class="sec-head"><div class="sec-tit">'+s.t+'</div><div class="sec-linea"></div></div>';
@@ -1094,11 +1115,14 @@ function pintar(clave){
     s.items.forEach(it=>{
       if(Array.isArray(it)){
         const nom = it[0].replace('★','<span class="estrella">★</span>');
+        const md  = mediaOrden(it[2]);
         h += '<div class="item" data-busca="'+limpio(it[0])+'">';
         if(it[3]) h += '<div class="it-ph">'+foto(it[3],carta.ico,it[0][0])+'</div>';
         h += '<div class="it-izq"><div class="it-nom">'+nom+'</div>'
-          +  (it[2]?'<div class="it-nota">'+it[2]+'</div>':'')
-          +  '</div><div class="it-pre">'+pesos(it[1])+'</div></div>';
+          +  (md.resto?'<div class="it-nota">'+md.resto+'</div>':'')
+          +  '</div><div class="it-pre">'+pesos(it[1])
+          +  (md.precio?'<span class="it-media">½ orden '+pesos(md.precio)+'</span>':'')
+          +  '</div></div>';
       } else {
         h += '<div class="item" data-busca="'+limpio(it.n)+'">'
           +  '<div class="it-izq"><div class="it-nom">'+it.n+'</div></div>'
