@@ -331,7 +331,12 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:7px}
 .sec-tit{font-family:var(--serif);font-weight:600;font-size:1.6rem;color:var(--oro);white-space:nowrap}
 .sec-linea{flex:1;height:1px;background:var(--linea)}
-.sec-nota{font-size:.78rem;color:var(--tenue);line-height:1.65;margin-bottom:16px;font-family:var(--serif);font-style:italic;font-size:.95rem}
+.sec-nota{
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:1.16rem;line-height:1.5;margin-bottom:18px;
+  color:var(--oro-claro);
+}
+@media(min-width:720px){.sec-nota{font-size:1.28rem}}
 .sec-encab{
   display:flex;justify-content:flex-end;gap:16px;margin:0 0 8px;
   font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tenue);
@@ -534,7 +539,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "24";
+const VER = "25";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
