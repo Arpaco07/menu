@@ -534,7 +534,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "16";
+const VER = "17";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -568,7 +568,7 @@ const FAVORITOS = [
   {n:"Aguachile de Rib Eye y Camarón", d:"Entrada para dos",               p:440,  f:"fotos/aguachile.jpg", ico:"mar"},
   {n:"Arrachera", d:"300 g · chile toreado, cebollín y papas o puré",      p:369,  f:"fotos/arrachera.jpg", ico:"carne"},
   {n:"Taco Gaonera", d:"De la parrilla, ya preparado",                     p:330,  f:"fotos/gaonera.jpg", ico:"carne"},
-  {n:"Volcán de Chocolate", d:"Recién salido del horno",                   p:110,  f:"fotos/volcan.jpg", ico:"postre"}
+  {n:"Pan de Elote", d:"Con una bola de helado",                           p:135,  f:"fotos/pan-elote.jpg", ico:"postre"}
 ];
 
 /* =======================================================================
@@ -657,7 +657,7 @@ desayunos: {
     ]},
     {t:"Café y bebidas calientes", items:[
       ["Capuchino de Sabor",85],
-      ["Capuchino",65],
+      ["Capuchino ★",65,"","fotos/capuchino.jpg"],
       ["Lechero",55],
       ["Expreso",50],
       ["Té de Hierbabuena",35],
@@ -799,8 +799,8 @@ comida: {
     ]},
     {t:"Para el antojo", nota:"Las hamburguesas se acompañan de papas gajo.", items:[
       ["Emparedado de Arrachera",310],
-      ["Hamburguesa Los Pares Especial",220],
-      ["Hamburguesa Los Pares ★",210,"","fotos/hamburguesa.jpg"],
+      ["Hamburguesa Los Pares Especial ★",220,"","fotos/hamburguesa.jpg"],
+      ["Hamburguesa Los Pares",210],
       ["Hamburguesa de Pollo Crujiente",200],
       ["Emparedado de Chorizo Argentino",165]
     ]},
@@ -844,7 +844,7 @@ comida: {
     {t:"Postres", items:[
       ["Crepas de Nutella",145],
       ["Cheesecake de Oreo",138,"","fotos/cheesecake.jpg"],
-      ["Pan de Elote con una Bola de Helado",135],
+      ["Pan de Elote con una Bola de Helado ★",135,"","fotos/pan-elote.jpg"],
       ["Churros",132],
       ["Crepas de Jamón con Queso Gouda",132],
       ["Mostachón de Fresa",120],
@@ -1047,7 +1047,7 @@ bebidas: {
       ["Capuchino de Sabor",85],
       ["Capuchino Kalúa",75],
       ["Limonada con Fresa",70],
-      ["Capuchino",65],
+      ["Capuchino ★",65,"","fotos/capuchino.jpg"],
       ["Jugo de Naranja y Zanahoria",65],
       ["Limonada",60],
       ["Naranjada",60],
