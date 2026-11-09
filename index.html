@@ -539,7 +539,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "29";
+const VER = "30";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -697,166 +697,120 @@ desayunos: {
 
 comida: {
   titulo:"Comida", num:"II", sub:"Parrilla, mariscos y más", ico:"carne",
-  aviso:"Los <b>cortes</b> se acompañan de chile toreado, cebollín y papas gajo o puré a elegir.",
+  aviso:"Nuestros cortes son <b>Certified Angus Beef</b> y llevan guarnición a elegir: puré de papas o papas gajo.",
   secciones:[
-    {t:"Del grill", items:[
-      ["Ojo de Rib Eye 300 g ★",1090,"","fotos/ojo-rib-eye.jpg"],
-      ["Tapa de Rib Eye 300 g ★",999],
-      ["Cowboy 500 g ★",989,"","fotos/cowboy.jpg"],
-      ["Rib Eye 16 oz",866],
-      ["Parrillada Mar y Tierra ★",850,"Para compartir","fotos/parrillada.jpg"],
-      ["Filete 300 g",759],
-      ["Parrillada de Carnes",750],
-      ["Rib Eye 340 g",649],
-      ["Vacío 400 g",609],
-      ["Picaña 400 g",559],
-      ["New York 340 g",519],
-      ["T-Bone 340 g",490],
-      ["Arrachera 300 g ★",369,"","fotos/arrachera.jpg"],
-      ["Chorizo Argentino 190 g",171]
-    ]},
-    {t:"Tacos", nota:"Van preparados, sin guarnición.", items:[
-      ["Taco Gaonera ★",330,"","fotos/gaonera.jpg"],
-      ["Taco Mamukas",325],
-      ["Tacos de Filete",315],
-      ["Tacos Rib Eye con Queso",310],
-      ["Tacos Mexicanos",275],
-      ["Tacos de Arrachera y Tuétano",255],
-      ["Tacos de Picaña ★",250,"","fotos/taco-picana.jpg"],
-      ["Quesabirria",209],
-      ["Tacos de Lengua",205],
-      ["Taco de Arrachera (orden)",77]
-    ]},
-    {t:"Extras de taco", items:[
-      ["Taco de Bife",110],
-      ["Taco de Rib Eye",105],
-      ["Taco de Picaña",85],
-      ["Taco de Arrachera",85],
-      ["Taco de Lengua",75],
-      ["Taco de Tripa",70],
-      ["Quesabirria",66],
-      ["Extra de queso",30]
-    ]},
-    {t:"Del mar", nota:"El pulpo se acompaña de ensalada y puré. El salmón, de ensalada y papas gajo o puré a elegir.", items:[
-      ["Pulpo al Grill ★",465,"","fotos/pulpo.jpg"],
-      ["Pulpo Rostizado",465],
-      ["Pulpo al Mojo de Ajo",462],
-      ["Pulpo Mediterráneo",400],
-      ["Tacos de Pulpo a las Brasas ★",390,"","fotos/taco-pulpo.jpg"],
-      ["Salmón a las Finas Hierbas",380],
-      ["Tacos de Camarón Los Pares",380],
-      ["Lengua a la Veracruzana",380,"Se sirve sin guarnición"],
-      ["Salmón al Grill 300 g ★",375,"Con ensalada y papas gajo o puré a elegir","fotos/salmon.jpg"],
-      ["Tacos Gobernador de Rib Eye y Camarón",375],
-      ["Tacos Gobernador de Arrachera y Camarón",360]
-    ]},
     {t:"Entradas", items:[
-      ["Aguachile de Rib Eye y Camarón ★",440,"","fotos/aguachile.jpg"],
-      ["Barbacoa de Picaña",300],
-      ["Jugo de Carne con Arrachera y Tuétano ★",198,"Media orden $110","fotos/jugo-carne.jpg"],
-      ["Coliflor Rostizada",180],
-      ["Crema Los Pares ★",110,"Media orden $70","fotos/crema-los-pares.jpg"],
-      ["Volcán de Filete ★",110,"","fotos/volcan-filete.jpg"],
-      ["Jugo de Carne",100,"Media orden $65","fotos/jugo-carne-solo.jpg"],
-      ["Papitas al Grill",100]
+      ["Aguachile de Rib Eye y Camarón ★",440,"Delicadas láminas de rib eye Certified Angus Beef y camarón fresco, marinadas en cítricos naturales con chile serrano, coronadas con aguacate cremoso y cebolla curtida artesanal.","fotos/aguachile.jpg"],
+      ["Barbacoa de Picaña 250 g",300,"Picaña seleccionada cocida lentamente por más de 16 horas en hoja de plátano, logrando textura melosa y profundidad excepcional de sabor."],
+      ["Tabla de Quesos",280,"Selección gourmet de quesos, salami, nuez y aceitunas.","fotos/tabla-quesos.jpg"],
+      ["Espárragos con Rib Eye",230,"Espárragos al grill acompañados de jugoso rib eye y reducción de vinagre balsámico."],
+      ["Guacamole con Chicharrón de Rib Eye ★",210,"Guacamole fresca con pico de gallo y crujientes trozos de rib eye.","fotos/guacamole.jpg"],
+      ["Mollejas de Res",200,"Mollejas crujientes por fuera y suaves al interior, acompañadas de chiles toreados."],
+      ["Tuétanos al Grill",190,"Tuétanos asados servidos con salsa especial de la casa y tortillas artesanales."],
+      ["Panceta Norteña",185,"Panceta crujiente y carnosa, sobre una cama de guacamole picante coronado con pico de gallo y cebollita cambray."],
+      ["Coliflor Rostizada",180,"Coliflor sellada a la parrilla con zarandeado especial y notas ligeramente ahumadas."],
+      ["Queso Fundido con Chistorra",165,"Quesos seleccionados fundidos al horno con ingredientes premium."],
+      ["Queso Fundido con Chorizo Argentino",155,"Quesos seleccionados fundidos al horno con ingredientes premium."],
+      ["Queso Fundido con Champiñones",145,"Quesos seleccionados fundidos al horno con ingredientes premium."],
+      ["Elotes Braseados",125,"Elotes bañados en mantequilla con aderezo morita y rub ligeramente picante."],
+      ["Volcán de Filete ★",110,"Filete premium finamente picado sobre base crujiente, acompañado de guacamole cremoso y cebolla curtida con cilantro fresco.","fotos/volcan-filete.jpg"],
+      ["Papa Rellena",105,"Gratinada con queso gouda y textura cremosa irresistible."],
+      ["Papitas al Grill",100,"Papas cambray crujientes por fuera y suaves por dentro, cubiertas con mezcla de quesos fundidos y toque ahumado."],
+      ["Empanada Argentina de Carne",75,"1 pieza · Masa artesanal rellena con recetas tradicionales argentinas, horneada al momento."],
+      ["Empanada Argentina de Elote",70,"1 pieza · Masa artesanal rellena con recetas tradicionales argentinas, horneada al momento."]
     ]},
-    {t:"Para ir picando", items:[
-      ["Tabla de Quesos",280,"","fotos/tabla-quesos.jpg"],
-      ["Espárragos con Rib Eye",230],
-      ["Guacamole con Chicharrón de Rib Eye ★",210,"","fotos/guacamole.jpg"],
-      ["Mollejas de Res",200],
-      ["Tuétanos al Grill",190],
-      ["Panceta Norteña",185],
-      ["Elotes Braseados",125],
-      ["Empanada Argentina de Carne",75],
-      ["Empanada Argentina de Elote con Queso",70],
-      ["Pan de Ajo",45],
-      ["Extra de frijoles con veneno",30]
+    {t:"Cortes americanos", nota:"Todos Certified Angus Beef. Guarnición a elegir: puré de papas o papas gajo.", items:[
+      ["Arrachera 300 g ★",369,"","fotos/arrachera.jpg"],
+      ["New York 340 g",519],
+      ["T-Bone 340 g",529],
+      ["Picaña 400 g",559],
+      ["Vacío 400 g",609],
+      ["Rib Eye 340 g",649],
+      ["Filete 300 g",759],
+      ["Cowboy 500 g ★",989,"","fotos/cowboy.jpg"],
+      ["Tapa Rib Eye 300 g",999],
+      ["Ojo de Rib Eye 300 g ★",1090,"","fotos/ojo-rib-eye.jpg"]
     ]},
-    {t:"Caldos", items:[
-      ["Birriamen",175,"Media orden $99"],
-      ["Pozole",170,"Media orden $100"],
-      ["Birria",155,"Media orden $90"],
-      ["Caldo Tlalpeño",150,"Media orden $85"],
-      ["Caldo de Pollo",135,"Media orden $75"],
-      ["Crema de Champiñones",110,"Media orden $70"],
-      ["Sopa Azteca",90]
+    {t:"Paquetes grill", nota:"Ideales para 3 personas.", items:[
+      ["Parrillada Mar & Tierra Signature ★",850,"Arrachera, chorizo argentino, chistorra, mollejas, brochetas de camarones y brochetas de pulpo zarandeados. Incluye tuétano asado, papas gajo, plátano macho, cebollines y chiles toreados.","fotos/parrillada.jpg"],
+      ["Gran Parrilla Signature",750,"Arrachera, chorizo argentino, chistorra, mollejas y pollo zarandeado. Acompañada de tuétano asado, papas gajo, plátano macho, cebollines y chiles toreados."]
     ]},
-    {t:"Pastas y pizzas", items:[
-      ["Pasta de Salmón y Mejillones",305],
-      ["Pizza Los Pares",305,"","fotos/pizza-los-pares.jpg"],
-      ["Pizza de Picaña y Chistorra",285],
-      ["Pasta Alfredo con Camarones",280],
-      ["Pasta de Camarón",275],
-      ["Mama Rosa",269],
-      ["Bolognesa",242],
+    {t:"Tacos", nota:"Tres piezas. Van preparados, sin guarnición.", items:[
+      ["Tacos de Pulpo a las Brasas ★",390,"Pulpo tierno con salsa rasurada y contraste crujiente.","fotos/taco-pulpo.jpg"],
+      ["Tacos de Camarón Los Pares",380,"Estilo ensenada, con equilibrio perfecto entre frescura y crocancia."],
+      ["Tacos Gobernador de Rib Eye y Camarón",375,"Fusión tierra y mar con queso gratinado, notas ahumadas y mousse de aguacate."],
+      ["Tacos Gobernador de Arrachera y Camarón",360,"Fusión tierra y mar con queso gratinado, notas ahumadas y mousse de aguacate."],
+      ["Tacos de Filete",315,"Filete picado y sazonado acompañado de tortilla azul, perejil frito, mousse de aguacate y costra de queso."],
+      ["Tacos de Rib Eye con Queso",310,"Costra dorada de queso fundido que abraza láminas jugosas de rib eye y mousse de aguacate."],
+      ["Tacos de Arrachera y Tuétano",255,"Combinación intensa con mousse de aguacate y toques especiados."],
+      ["Tacos de Picaña ★",250,"Con costra de queso y mousse de aguacate.","fotos/taco-picana.jpg"],
+      ["Quesabirrias",209,"Con queso gratinado y carne de birria que te sorprenderá."],
+      ["Tacos de Lengua",205,"Lengua de res cocida a baja temperatura hasta lograr textura sedosa, servida en tortillas artesanales."]
+    ]},
+    {t:"Tacos de autor", items:[
+      ["Tacos Gaonera ★",330,"Lámina de rib eye acompañada de fideo seco con chorizo español, chile piquín, crema y queso.","fotos/gaonera.jpg"],
+      ["Tacos Mamukas",325,"Láminas de rib eye acompañadas de aguacate y pico de gallo."],
+      ["Tacos Mexicanos",275,"Arrachera angus parrillada y cortada, servida en 3 tortillas de harina con costra de queso, frijoles y aguacate en tempura."]
+    ]},
+    {t:"Del mar", items:[
+      ["Pulpo al Grill ★",465,"Pulpo asado lentamente con técnica zarandeada, textura perfecta y sabor profundo.","fotos/pulpo.jpg"],
+      ["Pulpo Mediterráneo",400,"Pulpo al grill bañado en un rub de la casa, sobre espejo de jocoque, con palatinas, sofrito de tomate cherry y rúcula."],
+      ["Salmón a las Finas Hierbas",380,"Aromas frescos y elegantes acompañados de vegetales selectos."],
+      ["Salmón al Grill 300 g ★",375,"Sellado al punto ideal, jugoso por dentro y ligeramente crujiente por fuera.","fotos/salmon.jpg"]
+    ]},
+    {t:"Sopas y caldos", items:[
+      ["Jugo de Carne con Arrachera y Tuétano ★",198,"Media orden $110 · Fondo concentrado de res cocido lentamente con técnica clásica.","fotos/jugo-carne.jpg"],
+      ["Birriamen",175,"Fusión contemporánea entre la birria mexicana y el ramen japonés."],
+      ["Birria",155,"Media orden $90 · Cocción lenta de carne con especias tradicionales y toque picante equilibrado."],
+      ["Caldo Tlalpeño",150,"Media orden $85 · Receta tradicional con pollo, chipotle y vegetales frescos."],
+      ["Caldo de Pollo",135,"Media orden $75 · Pollo desmenuzado con vegetales frescos y toque casero."],
+      ["Crema Los Pares ★",110,"Media orden $70 · Crema suave y sedosa con un toque de habanero picante, receta exclusiva de la casa.","fotos/crema-los-pares.jpg"],
+      ["Crema de Champiñones",110,"Media orden $70 · Champiñones frescos cocidos lentamente y emulsionados hasta lograr textura aterciopelada."],
+      ["Jugo de Carne",100,"Media orden $65 · Fondo concentrado de res cocido lentamente con técnica clásica.","fotos/jugo-carne-solo.jpg"],
+      ["Sopa Azteca",90,"Caldo de tomate con tiras crujientes y queso fresco."]
+    ]},
+    {t:"Pastas y especialidades", items:[
+      ["Lengua a la Veracruzana",380,"Estofado de lengua elaborado con nuestra receta especial de la casa."],
+      ["Pizza Los Pares",305,"Orilla rellena de queso y mezcla especial de la casa.","fotos/pizza-los-pares.jpg"],
+      ["Salmón y Mejillones",305,"Delicada salsa blanca con toque de vodka y mariscos frescos."],
+      ["Pizza de Picaña y Chistorra",285,"Deliciosa picaña acompañada de salsa pomodoro y mezcla de quesos."],
+      ["Camarón",275,"Queso parmesano, vino blanco y camarones salteados al punto exacto."],
+      ["Mama Rosa",269,"Pasta penne con pomodoro y Alfredo, con hojuelas de chile y carne boloñesa."],
       ["Pizza Peperoni",242],
-      ["Pizza Hawaiana",242],
-      ["Alfredo con Pollo",230],
-      ["Carbonara",209],
-      ["Pizza Mitad y Mitad",193]
+      ["Boloñesa",242,"Salsa de tomate y carne boloñesa."],
+      ["Alfredo con Pollo",230,"Salsa blanca cremosa con pollo jugoso y brócoli fresco."],
+      ["Carbonara",209,"Crema de tocino y huevo, bien cremosa."]
     ]},
-    {t:"Para el antojo", nota:"Las hamburguesas se acompañan de papas gajo.", items:[
-      ["Emparedado de Arrachera",310],
-      ["Hamburguesa Los Pares Especial ★",220,"","fotos/hamburguesa.jpg"],
-      ["Hamburguesa Los Pares",210],
-      ["Hamburguesa de Pollo Crujiente",200],
-      ["Emparedado de Chorizo Argentino",165]
+    {t:"Para el antojo", items:[
+      ["Hamburguesa Los Pares Especial ★",220,"Carne bañada en salsa especial con tocino, cebolla caramelizada y fondue de queso.","fotos/hamburguesa.jpg"],
+      ["Hamburguesa Los Pares",210,"Carne premium con tocino crujiente y fondue de quesos."],
+      ["Hamburguesa de Pollo Crujiente",200,"Pechuga crunch con queso manchego y jamón, en pan artesanal con fondue de queso."]
     ]},
-    {t:"De la granja", nota:"Las pechugas se acompañan de ensalada y papas gajo o puré a elegir.", items:[
-      ["Pechuga Chimichurri",250],
-      ["Pechuga Empanizada",230],
-      ["Pechuga de Pollo al Grill",200],
-      ["Extra de pollo",110],
-      ["Huevo extra",12]
+    {t:"De la granja", items:[
+      ["Pechuga Chimichurri",250,"Pechuga bañada en chimichurri argentino preparado en casa."],
+      ["Pechuga Empanizada",230,"Crujiente por fuera y suave por dentro, servida con guarnición seleccionada."],
+      ["Pechuga de Pollo al Grill",200,"Pechuga jugosa sellada a la parrilla, acompañada de ensalada fresca y papas."]
     ]},
     {t:"Ensaladas", items:[
-      ["Ensalada con Salmón al Grill 300 g",290],
-      ["Ensalada Caribeña",185],
-      ["Ensalada César",180],
-      ["Ensalada Pera y Manzana",180],
-      ["Ensalada de Frutos Rojos",143],
-      ["Ensalada Argentina",132],
-      ["Extra de queso",30]
-    ]},
-    {t:"Quesos fundidos", items:[
-      ["Queso Fundido con Chistorra",165],
-      ["Queso Fundido con Chorizo Argentino",155],
-      ["Queso Fundido con Champiñones",145],
-      ["Queso Fundido",90]
+      ["Ensalada Caribeña",185,"Fresas, durazno, pollo a la parrilla, nuez tostada y queso de cabra con vinagreta de pera."],
+      ["Ensalada César",180,"Lechugas frescas, pollo a la parrilla, parmesano importado y aderezo César elaborado al momento."],
+      ["Ensalada de Pera y Manzana",180,"Mix de hojas frescas con fruta natural, queso de cabra y arándanos."],
+      ["Frutos Rojos y Panela Asada",143,"Mix de lechugas con queso panela dorado, vinagreta de miel y frutos rojos."]
     ]},
     {t:"Complementos", items:[
-      ["Papa Rellena",105],
-      ["Guacamole",99],
-      ["Papas Gajo",97],
-      ["Extra de puré de papa",88],
+      ["Guacamole",99,"Aguacate fresco machacado al momento con pico de gallo artesanal."],
       ["Espárragos",88],
-      ["Sincronizadas",80],
-      ["Extra de pollo",80],
-      ["Verduras Asadas",77],
-      ["Ensalada",70],
-      ["Chiles Toreados",50],
-      ["Extra de tortilla",33],
-      ["Extra de rompope",25],
-      ["Extra de tocino",25]
+      ["Verduras Asadas",77,"Asadas con aceite de oliva extra virgen."],
+      ["Chiles Toreados",50,"Selección de vegetales de temporada caramelizados al grill."]
     ]},
     {t:"Postres", items:[
-      ["Crepas de Nutella",145],
+      ["Crepas de Nutella o Cajeta",145],
       ["Cheesecake de Oreo ★",138,"","fotos/cheesecake.jpg"],
-      ["Pan de Elote con una Bola de Helado ★",135,"","fotos/pan-elote.jpg"],
-      ["Churros",132],
-      ["Crepas de Jamón con Queso Gouda",132],
-      ["Mostachón de Fresa",120],
+      ["Pan de Elote con Helado ★",135,"","fotos/pan-elote.jpg"],
+      ["Churros",132,"Acompañados con chocolate derretido."],
       ["Plátanos Flameados",120],
-      ["Volcán de Chocolate ★",110,"","fotos/volcan.jpg"],
-      ["Flan Napolitano",105],
-      ["Plátano Asado con Crema y Helado",88],
-      ["Platón de Fruta con Yogurt y Avena",85],
-      ["Duraznos con Crema",80],
-      ["Duraznos con Crema y Rompope",80],
-      ["Helado",70,"Fresa, vainilla, chocolate o napolitano"],
-      ["Bola de Helado",66],
-      ["Platón de Fruta Sencillo",65]
+      ["Durazno con Crema y Rompope",80],
+      ["Bola de Helado",70]
     ]},
     {t:"Menú infantil", items:[
       ["Nuggets",120],
@@ -872,201 +826,120 @@ bebidas: {
   titulo:"Bebidas", num:"III", sub:"Coctelería, mezcales y vinos", ico:"copa",
   aviso:"Servicio de barra: <b>2 × 1 en copeo todo el día</b> y <b>3 × 1 de 5:00 a 8:00 pm</b>. No aplica en cervezas ni refrescos.",
   secciones:[
-    {t:"Coctelería clásica", items:[
-      ["Piña Colada con Baileys",320],
-      ["Alfonso XIII",250],
-      ["Caipirinha",250],
-      ["Carajillo ★",250,"","fotos/carajillo.jpg"],
-      ["Daiquirí",250],
-      ["Expresso Martini",250],
-      ["Gin Tonic",250],
+    {t:"Coctelería", nota:"Todos a $250 el copeo.", items:[
       ["Margarita ★",250,"","fotos/margarita.jpg"],
-      ["Medias de Seda",250],
-      ["Mezcalina",250],
       ["Mojito",250],
+      ["Caipiriña",250],
       ["Paloma",250],
+      ["Daiquirí",250],
       ["Piña Colada",250],
+      ["Medias de Seda",250],
+      ["Alfonso XIII",250],
+      ["Carajillo ★",250,"","fotos/carajillo.jpg"],
+      ["Mezcalina",250],
+      ["Espresso Martini",250],
+      ["Gin Tonic",250],
       ["Tequila Sunrise",250],
-      ["Aperol",200],
-      ["Shots en mesa",200],
-      ["Tinto de Verano",200],
-      ["Vodka Tonic",200],
-      ["Ruso Blanco",190],
-      ["Conga",160],
-      ["Martini de Chocolate",150],
-      ["Midori Colado",150],
-      ["Vampiro",150],
-      ["Sangrita",50]
+      ["Mermaid Mocktail",250,"Sin alcohol."]
     ]},
-    {t:"Coctelería de autor", items:[
-      ["Coctel de Autor ★",250,"Pregunta por el del día","fotos/autor.jpg"],
-      ["Perla Negra",250],
-      ["Vermut",250],
-      ["St. Germain",200]
-    ]},
-    {t:"Mezcales", dobles:true, items:[
+    {t:"Mezcal", dobles:true, items:[
       {n:"Wahaka Ensamble",c:400,b:2800},
-      {n:"Wahaka Madre Cuishe",b:2320},
       {n:"Wahaka Tobalá",c:360,b:2200},
-      {n:"Necio Jabalí",c:350,b:2500},
-      {n:"Necio Tobalá",c:165,b:1500},
-      {n:"Wahaka Espadín",c:130,b:1400},
-      {n:"Wahaka Espadín Reposado",c:170},
-      {n:"Perro Pal Toche Espadín",c:120,b:1300},
-      {n:"Perro Pal Toche Tobalá",c:160,b:1200},
-      {n:"Necio Espadín",c:120,b:980},
-      {n:"De la Casa Tobalá",c:240,b:850},
-      {n:"Necio 35",c:110,b:850},
-      {n:"Tobalá",b:700},
-      {n:"De la Casa Espadín",c:190,b:500},
-      {n:"Necio",b:500}
+      {n:"Wahaka Espadín",c:280,b:1400},
+      {n:"De la Casa Tobalá",c:240},
+      {n:"De la Casa Espadín",c:190},
+      {n:"Perro Pal Toche Tobalá",c:160,b:1500},
+      {n:"Perro Pal Toche Espadín",c:135,b:1250}
     ]},
     {t:"Tequila", dobles:true, items:[
-      {n:"Don Julio 70",c:260,b:2100},
-      {n:"1800 Cristal",c:240,b:2100},
-      {n:"Maestro Dobel",c:240,b:2100},
-      {n:"Don Julio Reposado",c:185,b:1650},
-      {n:"Don Julio Blanco",c:220,b:1550},
-      {n:"José Cuervo Tradicional",c:210,b:1200},
-      {n:"José Cuervo Especial",c:100}
+      {n:"Don Julio 70 · 700 ml",c:260,b:2100},
+      {n:"Maestro Dobel · 700 ml",c:240,b:2100},
+      {n:"1800 Cristalino · 700 ml",c:240,b:2100},
+      {n:"Don Julio Reposado · 700 ml",c:240,b:1650},
+      {n:"Don Julio Blanco · 700 ml",c:220,b:1550},
+      {n:"José Cuervo Tradicional · 950 ml",c:210,b:1200}
     ]},
     {t:"Whisky", dobles:true, items:[
-      {n:"Buchanan's 18",c:540,b:4800},
-      {n:"Etiqueta Dorada",c:400,b:3400},
-      {n:"Etiqueta Negra",c:280,b:2400},
-      {n:"Buchanan's 12",c:260,b:2000},
-      {n:"Old Parr",c:260,b:2000},
-      {n:"Jack Daniel's",c:220,b:1500},
-      {n:"Etiqueta Roja",c:190,b:900},
-      {n:"Black & White",c:150}
+      {n:"Buchanan's 18 · 750 ml",c:540,b:4800},
+      {n:"Etiqueta Dorada · 750 ml",c:400,b:3400},
+      {n:"Etiqueta Negra · 750 ml",c:280,b:2400},
+      {n:"Buchanan's 12 · 750 ml",c:260,b:2000},
+      {n:"Old Parr · 750 ml",c:260,b:2000},
+      {n:"Jack Daniel's · 700 ml",c:220,b:1500},
+      {n:"Etiqueta Roja · 700 ml",c:190,b:900}
     ]},
     {t:"Brandy y coñac", dobles:true, items:[
-      {n:"Torres 20",c:360,b:2950},
-      {n:"Martell VSOP",c:240,b:2100},
-      {n:"Martell VS",c:210,b:1800},
-      {n:"Torres 15",c:240,b:1450},
-      {n:"Torres 10 (1 L)",b:1370},
-      {n:"Torres 10",c:210,b:1050},
-      {n:"Torres 5",c:150,b:700},
-      {n:"Fundador",c:120,b:700}
+      {n:"Torres 20 · 700 ml",c:360,b:2950},
+      {n:"Martell VSOP · 700 ml",c:280,b:2200},
+      {n:"Martell VS · 700 ml",c:260,b:1900},
+      {n:"Torres 15 · 700 ml",c:240,b:1450},
+      {n:"Torres 10 · 700 ml",c:210,b:1050},
+      {n:"Torres 5 · 700 ml",c:150,b:700},
+      {n:"Fundador Cherry · 700 ml",c:120,b:700}
     ]},
     {t:"Ron", dobles:true, items:[
-      {n:"Zacapa 23",c:300,b:2700},
-      {n:"Havana Club",c:240,b:1200},
-      {n:"Matusalén Clásico",c:220,b:950},
-      {n:"Matusalén Platino",c:190,b:900},
-      {n:"Appleton Estate",c:190,b:780},
-      {n:"Bacardí Blanco",c:180,b:750}
+      {n:"Zacapa · 750 ml",c:300,b:2700},
+      {n:"Havana Club · 700 ml",c:240,b:1200},
+      {n:"Matusalén Clásico · 750 ml",c:220,b:950},
+      {n:"Appleton Estate · 750 ml",c:190,b:780},
+      {n:"Matusalén Platino · 750 ml",c:190,b:900},
+      {n:"Bacardí Blanco · 700 ml",c:180,b:750}
     ]},
     {t:"Vodka", dobles:true, items:[
-      {n:"Grey Goose",c:250,b:2100},
-      {n:"Absolut Azul",c:210,b:950},
-      {n:"Stolichnaya",c:210,b:950},
-      {n:"Smirnoff",c:200,b:850},
-      {n:"Absolut Raspberry",c:185,b:850},
-      {n:"Smirnoff Tamarindo",c:155,b:800}
+      {n:"Grey Goose · 750 ml",c:250,b:2100},
+      {n:"Stolichnaya · 750 ml",c:210,b:950},
+      {n:"Absolut Azul · 750 ml",c:210,b:950},
+      {n:"Smirnoff · 1 L",c:200,b:850}
     ]},
-    {t:"Ginebras", dobles:true, items:[
-      {n:"Hendrick's",c:260,b:2150},
-      {n:"Bombay",c:230,b:1450},
-      {n:"Tanqueray",c:210,b:1300},
-      {n:"Beefeater",c:140,b:1250}
+    {t:"Ginebra", dobles:true, items:[
+      {n:"Hendrick's · 750 ml",c:260,b:2150},
+      {n:"Bombay · 700 ml",c:230,b:1450},
+      {n:"Tanqueray Ten · 750 ml",c:210,b:1300}
     ]},
     {t:"Vino tinto", dobles:true, items:[
-      {n:"G. Ricardo Ensamble Ultra Premium Cabernet Sauvignon",b:3800},
-      {n:"Casa Madero 3V Cabernet Sauvignon Merlot",b:1050},
-      {n:"Calixa Cabernet Sauvignon Syrah",b:1000},
-      {n:"Vino Tinto Potros",b:750},
-      {n:"Tinto de la Casa",c:90,b:600}
+      {n:"Gran Ricardo Monte Xanic · ensamble ultra premium de Cabernet Sauvignon Merlot",b:3800},
+      {n:"3V Casa Madero · Cabernet Sauvignon Merlot",b:1050},
+      {n:"Calixa Monte Xanic · Cabernet Sauvignon Syrah",b:1000},
+      {n:"Protos Roble",b:750},
+      {n:"De la Casa",c:90,b:600}
     ]},
-    {t:"Vino blanco y espumosos", dobles:true, items:[
-      {n:"Moët Brut",b:2500},
-      {n:"Vino Blanco de la Casa",c:110,b:1100},
-      {n:"Casa Madero 2V",b:900},
-      {n:"Casa Madero 2V Rosa",b:800},
-      {n:"Calixa Blanco",b:800},
-      {n:"Cinzano Espumoso",b:500},
-      {n:"XA Domecq",b:450}
+    {t:"Vino blanco", dobles:true, items:[
+      {n:"Casa Madero 2V",b:1100},
+      {n:"Calixa Blanco",b:900},
+      {n:"De la Casa",c:110}
     ]},
-    {t:"Sangrías y clericot", items:[
-      ["Jarra de Clericot de la Casa",450],
-      ["Jarra de Clericot California",250],
-      ["Jarra de Sangría",165],
-      ["Copa de Clericot de la Casa",160],
-      ["Calimocho",150],
-      ["Tinto de Verano de la Casa",130],
-      ["Copa de Clericot California",100],
-      ["Copa de Sangría",90],
-      ["Tinto de Verano California",90]
+    {t:"Champagne", dobles:true, items:[
+      {n:"Veuve Brut",b:3400},
+      {n:"Moët Brut",b:3200}
+    ]},
+    {t:"Clericot", dobles:true, nota:"La jarra, $450.", items:[
+      {n:"Clericot",c:160,b:450}
     ]},
     {t:"Digestivos", items:[
-      ["Botella de Chinchón Dulce",900],
-      ["Copa de Sambuca",240],
-      ["Copa de Martell",240],
-      ["Copa de Anís Dulce Las Cadenas",220],
-      ["Copa de Baileys",220],
-      ["Copa de Anís Campechano",190],
-      ["Chinchón Campechano",180],
-      ["Copa de Anís Dulce Chinchón",180],
-      ["Copa de Anís Seco",180],
-      ["Copa de Licor 43",180],
-      ["Frangélico",180],
-      ["Copa de Jägermeister",180],
-      ["Shot de Rompope",20]
+      ["Sambuca",240],
+      ["Anís Dulce Las Cadenas 750 ml",220],
+      ["Baileys",220],
+      ["Anís Dulce Chinchón 1 L",180],
+      ["Anís Campechano Chinchón 1 L",180],
+      ["Anís Seco Chinchón 1 L",180]
     ]},
     {t:"Cervezas", items:[
-      ["Modelo Especial",60],
-      ["Negra Modelo",60],
+      ["Michelada ★",95,"Corona o Victoria.","fotos/michelada.jpg"],
       ["Michelob Ultra",50],
-      ["Corona 355 ml",45],
+      ["Modelo Especial",49],
+      ["Negra Modelo",49],
+      ["Corona",45],
       ["Corona Cero",45],
-      ["Victoria 355 ml",45],
-      ["Cerveza sin alcohol",30]
-    ]},
-    {t:"Cheladas y micheladas", items:[
-      ["Michelada Corona",95,"","fotos/michelada.jpg"],
-      ["Michelada Victoria",95],
-      ["Michelada Negra Modelo",75],
-      ["Michelada Michelob Ultra",75],
-      ["Michelada Modelo Especial",75],
-      ["Chelada Modelo Especial",70],
-      ["Chelada Corona",65],
-      ["Chelada Victoria",65],
-      ["Chelada Michelob Ultra",65],
-      ["Chelada Negra Modelo",65],
-      ["Chelada con Topo Chico",55],
-      ["Chelada con Agua Mineral",45],
-      ["Preparado",25]
+      ["Victoria",45]
     ]},
     {t:"Sin alcohol", items:[
-      ["Jarra de Fresada",200],
-      ["Jarra de Limonada",185],
-      ["Jarra de Naranjada",185],
-      ["Licuado de Fresa",85],
-      ["Capuchino de Sabor",85],
-      ["Capuchino Kalúa",75],
-      ["Limonada con Fresa",70],
-      ["Capuchino ★",65,"","fotos/capuchino.jpg"],
-      ["Jugo de Naranja y Zanahoria",65],
-      ["Limonada",60],
-      ["Naranjada",60],
-      ["Café Expresso",50],
-      ["Café Americano ★",45,"","fotos/cafe-americano.jpg"],
-      ["Vaso de Leche",35]
-    ]},
-    {t:"Refrescos y aguas", items:[
-      ["Jugo de Arándanos",100],
-      ["Boost (lata)",85],
-      ["Topo Chico 355 ml",45],
-      ["Agua Mineral 355 ml",40],
-      ["Refresco en lata 355 ml",40,"Coca Cola, Cero, Light, Fanta, Fresca, Sidral Mundet, Sprite o Squirt"],
-      ["Botella de Agua 600 ml",35],
-      ["Agua Quina",30]
-    ]},
-    {t:"Servicio", items:[
-      ["Descorche",350],
-      ["Cristalería",50],
-      ["Cuenco",50]
+      ["Jarra de Limonada, Naranjada o Fresada",185],
+      ["Boost",85],
+      ["Limonada, Naranjada o Fresada",60],
+      ["Topo Chico",45],
+      ["Refrescos",40],
+      ["Agua Mineral Peñafiel",40],
+      ["Botella de Agua Natural",35]
     ]}
   ]
 },
@@ -1250,7 +1123,7 @@ function pintar(clave){
     h += '<div class="seccion" id="sec-'+slug(s.t)+'-'+i+'">';
     h += '<div class="sec-head"><div class="sec-tit">'+s.t+'</div><div class="sec-linea"></div></div>';
     if(s.nota) h += '<div class="sec-nota">'+s.nota+'</div>';
-    if(s.dobles) h += '<div class="sec-encab"><span>Copa</span><span>Botella</span></div>';
+    if(s.dobles) h += '<div class="sec-encab"><span>Copeo</span><span>Botella</span></div>';
 
     /* Secciones en lista con foto grande a la izquierda */
     if(s.lista){
