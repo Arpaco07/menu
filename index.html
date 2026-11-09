@@ -539,7 +539,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "32";
+const VER = "33";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -594,54 +594,54 @@ desayunos: {
   aviso:"Todos nuestros desayunos incluyen <b>café refill</b>. Se sirven hasta la 1:00 pm.",
   secciones:[
     {t:"Paquetes", nota:"Todos los paquetes incluyen fruta, más café o jugo a elegir.", items:[
+      ["Huevo al Gusto",180,"Tres huevos de libre pastoreo preparados a elección, con jamón artesanal, tocino crujiente o longaniza tradicional, acompañados de frijoles refritos de la casa."],
       ["Desayuno Los Pares ★",215,"Huevos revueltos con ropa vieja cocinada lentamente, pico de gallo fresco y frijoles tradicionales.","fotos/desayuno-los-pares.jpg"],
-      ["Omelette Clásico Premium",200,"Huevos rellenos con jamón selecto y mezcla de quesos fundidos, servidos con frijoles refritos."],
       ["Omelette Fit Gourmet",190,"Claras montadas con espinaca baby y queso ligero, opción equilibrada y refinada."],
-      ["Huevo al Gusto",180,"Tres huevos de libre pastoreo preparados a elección, con jamón artesanal, tocino crujiente o longaniza tradicional, acompañados de frijoles refritos de la casa."]
+      ["Omelette Clásico Premium",200,"Huevos rellenos con jamón selecto y mezcla de quesos fundidos, servidos con frijoles refritos."]
     ]},
     {t:"De la granja", items:[
       ["Motuleños",165,"Tortilla frita crujiente con frijoles refritos, huevos estrellados, salsa tatemada, jamón dorado, chícharos y queso gouda."],
       ["Huevos Sorpresa",145,"Pan integral artesanal con huevo estrellado, jamón, mezcla de quesos y espinaca fresca, coronado con aguacate."],
-      ["Huevos Rancheros Premium",145,"Huevos estrellados sobre tortilla dorada con costra de queso, bañados en salsa tatemada y acompañados de chorizo y aguacate."],
       ["Salsa de Huevo Tradicional",140,"Huevos revueltos en salsa roja tatemada con chorizo artesanal y el toque distintivo de la casa."],
+      ["Huevos Rancheros Premium",145,"Huevos estrellados sobre tortilla dorada con costra de queso, bañados en salsa tatemada y acompañados de chorizo y aguacate."],
       ["Huevos Divorciados",135,"Huevos estrellados bañados en salsa roja y verde, acompañados de frijoles tradicionales y guarnición fresca."]
     ]},
     {t:"Para el antojo", items:[
-      ["Quesabirrias",209,"Con queso gratinado y carne de birria que te sorprenderá."],
+      ["Enchiladas Suizas ★",125,"Rellenas de jamón, pollo o huevo, bañadas en salsa especial roja o verde, con crema y queso gratinado.","fotos/enchiladas-suizas.jpg"],
+      ["Enchiladas Suizas Blancas",125,"Salsa blanca cremosa con delicado toque de habanero, gratinadas al momento."],
+      ["Enchiladas de Mole Oaxaqueño",180,"Mole tradicional de receta ancestral, acompañado de queso, crema y cebolla."],
+      ["Entomatadas Caseras",125,"Bañadas en salsa de tomate tatemado, rellenas de jamón o pollo."],
       ["Chilaquiles Especiales con Arrachera ★",205,"Totopos crujientes en salsa verde, roja o blanca, con cebolla, crema y queso.","fotos/chilaquiles-arrachera.jpg"],
       ["Chilaquiles Especiales con Pollo",195,"Totopos crujientes en salsa verde, roja o blanca, con cebolla, crema y queso."],
       ["Enfrijoladas Los Pares",195,"Tortillas rellenas de arrachera bañadas en salsa de frijol negro y queso fresco."],
-      ["Enchiladas de Mole Oaxaqueño",180,"Mole tradicional de receta ancestral, acompañado de queso, crema y cebolla."],
-      ["Pan Francés de la Casa ★",160,"Pan brioche sumergido en mezcla aromática, dorado y servido con frutas y miel.","fotos/pan-frances.jpg"],
-      ["Enchiladas Suizas ★",125,"Rellenas de jamón, pollo o huevo, bañadas en salsa especial roja o verde, con crema y queso gratinado.","fotos/enchiladas-suizas.jpg"],
-      ["Enchiladas Suizas Blancas",125,"Salsa blanca cremosa con delicado toque de habanero, gratinadas al momento."],
-      ["Entomatadas Caseras",125,"Bañadas en salsa de tomate tatemado, rellenas de jamón o pollo."],
       ["Sincronizadas Gourmet",115,"Tortilla de harina rellena de jamón y queso, con aderezo especial de la casa."],
+      ["Hot Cakes Sencillos ★",105,"Esponjosos hot cakes preparados al momento.","fotos/hot-cakes.jpg"],
       ["Hot Cakes con Tocino",115,"Esponjosos hot cakes preparados al momento, con tocino crujiente."],
+      ["Pan Francés de la Casa ★",160,"Pan brioche sumergido en mezcla aromática, dorado y servido con frutas y miel.","fotos/pan-frances.jpg"],
       ["Avocado Toast Premium",110,"Pan tostado artesanal con aguacate fresco, queso y especias selectas."],
-      ["Hot Cakes Sencillos ★",105,"Esponjosos hot cakes preparados al momento.","fotos/hot-cakes.jpg"]
+      ["Quesabirrias",209,"Con queso gratinado y carne de birria que te sorprenderá."]
     ]},
     {t:"Antojitos jarochos", items:[
-      ["Gorditas Especiales",125,"Rellenas de frijol, queso y carne molida, acompañadas de ensalada fresca y crema."],
+      ["Empanadas Artesanales de Queso",80,"3 piezas · Rellenas de queso fundente, doradas al momento."],
+      ["Empanadas Artesanales de Pollo",85,"3 piezas · Rellenas de pollo especiado, doradas al momento."],
+      ["Empanadas Artesanales de Carne",90,"3 piezas · Rellenas de carne tradicional, doradas al momento."],
       ["Gorditas Veracruzanas",100,"Clásica gordita rellena de carne o pollo con sazón tradicional."],
+      ["Gorditas Especiales",125,"Rellenas de frijol, queso y carne molida, acompañadas de ensalada fresca y crema."],
       ["Orden de Picaditas de Carne",95,"Base crujiente con proteína a elegir y salsa casera."],
-      ["Empanadas Artesanales de Carne",90,"3 piezas · Rellenas de queso fundente, pollo especiado o carne tradicional, doradas al momento."],
       ["Orden de Picaditas de Pollo",90,"Base crujiente con proteína a elegir y salsa casera."],
-      ["Empanadas Artesanales de Pollo",85,"3 piezas · Doradas al momento."],
-      ["Empanadas Artesanales de Queso",80,"3 piezas · Doradas al momento."],
       ["Plátanos Fritos",70,"Plátano macho dorado acompañado de crema y queso fresco."]
     ]},
     {t:"Emparedados", items:[
-      ["Emparedado de Arrachera",310,"Baguette crujiente con arrachera, mezcla de quesos y aderezo gourmet."],
-      ["Club Sandwich",175,"Pechuga, tocino, jamón, queso, aguacate y aderezo especial."],
+      ["Emparedado de Jamón y Queso Clásico",140,"Pan de la casa, jamón de pavo, queso mozzarella y salsa de la casa."],
       ["Emparedado de Chorizo Argentino",165,"Pan artesanal con chorizo al grill, mozzarella y salsa tártara."],
-      ["Emparedado de Jamón y Queso Clásico",140,"Pan de la casa, jamón de pavo, queso mozzarella y salsa de la casa."]
+      ["Emparedado de Arrachera",310,"Baguette crujiente con arrachera, mezcla de quesos y aderezo gourmet."],
+      ["Club Sandwich",175,"Pechuga, tocino, jamón, queso, aguacate y aderezo especial."]
     ]},
     {t:"Ensaladas", items:[
-      ["Ensalada Caribeña",185,"Fresas, durazno, pollo a la parrilla, nuez tostada y queso de cabra con vinagreta de pera."],
+      ["Frutos Rojos y Panela Asada",143,"Mix de lechugas con queso panela dorado, vinagreta de miel y frutos rojos."],
       ["César Suprema",180,"Lechugas frescas con pollo grillado, parmesano y crotones artesanales."],
       ["Ensalada de Pera y Manzana",180,"Lechugas mixtas con fruta fresca, queso de cabra y arándanos."],
-      ["Frutos Rojos y Panela Asada",143,"Mix de lechugas con queso panela dorado, vinagreta de miel y frutos rojos."]
+      ["Ensalada Caribeña",185,"Fresas, durazno, pollo a la parrilla, nuez tostada y queso de cabra con vinagreta de pera."]
     ]}
   ]
 },
@@ -703,6 +703,18 @@ comida: {
       ["Tacos Mamukas",325,"Láminas de rib eye acompañadas de aguacate y pico de gallo."],
       ["Tacos Mexicanos",275,"Arrachera angus parrillada y cortada, servida en 3 tortillas de harina con costra de queso, frijoles y aguacate en tempura."]
     ]},
+    {t:"Pastas y especialidades", items:[
+      ["Lengua a la Veracruzana",380,"Estofado de lengua elaborado con nuestra receta especial de la casa."],
+      ["Pizza Los Pares",305,"Orilla rellena de queso y mezcla especial de la casa.","fotos/pizza-los-pares.jpg"],
+      ["Salmón y Mejillones",305,"Delicada salsa blanca con toque de vodka y mariscos frescos."],
+      ["Pizza de Picaña y Chistorra",285,"Deliciosa picaña acompañada de salsa pomodoro y mezcla de quesos."],
+      ["Camarón",275,"Queso parmesano, vino blanco y camarones salteados al punto exacto."],
+      ["Mama Rosa",269,"Pasta penne con pomodoro y Alfredo, con hojuelas de chile y carne boloñesa."],
+      ["Pizza Peperoni",242],
+      ["Boloñesa",242,"Salsa de tomate y carne boloñesa."],
+      ["Alfredo con Pollo",230,"Salsa blanca cremosa con pollo jugoso y brócoli fresco."],
+      ["Carbonara",209,"Crema de tocino y huevo, bien cremosa."]
+    ]},
     {t:"Del mar", items:[
       ["Pulpo al Grill ★",465,"Pulpo asado lentamente con técnica zarandeada, textura perfecta y sabor profundo.","fotos/pulpo.jpg"],
       ["Pulpo Mediterráneo",400,"Pulpo al grill bañado en un rub de la casa, sobre espejo de jocoque, con palatinas, sofrito de tomate cherry y rúcula."],
@@ -720,27 +732,15 @@ comida: {
       ["Jugo de Carne",100,"Media orden $65 · Fondo concentrado de res cocido lentamente con técnica clásica.","fotos/jugo-carne-solo.jpg"],
       ["Sopa Azteca",90,"Caldo de tomate con tiras crujientes y queso fresco."]
     ]},
-    {t:"Pastas y especialidades", items:[
-      ["Lengua a la Veracruzana",380,"Estofado de lengua elaborado con nuestra receta especial de la casa."],
-      ["Pizza Los Pares",305,"Orilla rellena de queso y mezcla especial de la casa.","fotos/pizza-los-pares.jpg"],
-      ["Salmón y Mejillones",305,"Delicada salsa blanca con toque de vodka y mariscos frescos."],
-      ["Pizza de Picaña y Chistorra",285,"Deliciosa picaña acompañada de salsa pomodoro y mezcla de quesos."],
-      ["Camarón",275,"Queso parmesano, vino blanco y camarones salteados al punto exacto."],
-      ["Mama Rosa",269,"Pasta penne con pomodoro y Alfredo, con hojuelas de chile y carne boloñesa."],
-      ["Pizza Peperoni",242],
-      ["Boloñesa",242,"Salsa de tomate y carne boloñesa."],
-      ["Alfredo con Pollo",230,"Salsa blanca cremosa con pollo jugoso y brócoli fresco."],
-      ["Carbonara",209,"Crema de tocino y huevo, bien cremosa."]
+    {t:"De la granja", items:[
+      ["Pechuga Chimichurri",250,"Pechuga bañada en chimichurri argentino preparado en casa."],
+      ["Pechuga Empanizada",230,"Crujiente por fuera y suave por dentro, servida con guarnición seleccionada."],
+      ["Pechuga de Pollo al Grill",200,"Pechuga jugosa sellada a la parrilla, acompañada de ensalada fresca y papas."]
     ]},
     {t:"Para el antojo", items:[
       ["Hamburguesa Los Pares Especial ★",220,"Carne bañada en salsa especial con tocino, cebolla caramelizada y fondue de queso.","fotos/hamburguesa.jpg"],
       ["Hamburguesa Los Pares",210,"Carne premium con tocino crujiente y fondue de quesos."],
       ["Hamburguesa de Pollo Crujiente",200,"Pechuga crunch con queso manchego y jamón, en pan artesanal con fondue de queso."]
-    ]},
-    {t:"De la granja", items:[
-      ["Pechuga Chimichurri",250,"Pechuga bañada en chimichurri argentino preparado en casa."],
-      ["Pechuga Empanizada",230,"Crujiente por fuera y suave por dentro, servida con guarnición seleccionada."],
-      ["Pechuga de Pollo al Grill",200,"Pechuga jugosa sellada a la parrilla, acompañada de ensalada fresca y papas."]
     ]},
     {t:"Ensaladas", items:[
       ["Ensalada Caribeña",185,"Fresas, durazno, pollo a la parrilla, nuez tostada y queso de cabra con vinagreta de pera."],
@@ -777,21 +777,37 @@ bebidas: {
   titulo:"Bebidas", num:"III", sub:"Coctelería, mezcales y vinos", ico:"copa",
   aviso:"Servicio de barra: <b>2 × 1 en copeo todo el día</b> y <b>3 × 1 de 5:00 a 8:00 pm</b>. No aplica en cervezas ni refrescos.",
   secciones:[
-    {t:"Coctelería", nota:"Todos a $250 el copeo.", items:[
-      ["Margarita ★",250,"","fotos/margarita.jpg"],
-      ["Mojito",250],
-      ["Caipiriña",250],
-      ["Paloma",250],
-      ["Daiquirí",250],
-      ["Piña Colada",250],
-      ["Medias de Seda",250],
-      ["Alfonso XIII",250],
-      ["Carajillo ★",250,"","fotos/carajillo.jpg"],
-      ["Mezcalina",250],
-      ["Espresso Martini",250],
-      ["Gin Tonic",250],
-      ["Tequila Sunrise",250],
-      ["Mermaid Mocktail",250,"Sin alcohol."]
+    {t:"Sin alcohol", items:[
+      ["Refrescos",40],
+      ["Agua Mineral Peñafiel",40],
+      ["Topo Chico",45],
+      ["Botella de Agua Natural",35],
+      ["Boost",85],
+      ["Limonada o Naranjada",60],
+      ["Jarra de Limonada o Naranjada",185],
+      ["Fresada",70],
+      ["Jarra de Fresada",215]
+    ]},
+    {t:"Digestivos", items:[
+      ["Anís Dulce Las Cadenas 750 ml",220],
+      ["Anís Dulce Chinchón 1 L",180],
+      ["Anís Campechano Chinchón 1 L",180],
+      ["Anís Seco Chinchón 1 L",180],
+      ["Sambuca",240],
+      ["Baileys",220]
+    ]},
+    {t:"Champagne", dobles:true, items:[
+      {n:"Moët Brut",b:3200},
+      {n:"Veuve Brut",b:3400}
+    ]},
+    {t:"Cervezas", items:[
+      ["Corona",45],
+      ["Corona Cero",45],
+      ["Victoria",45],
+      ["Modelo Especial",69],
+      ["Negra Modelo",69],
+      ["Michelob Ultra",50],
+      ["Michelada ★",95,"Corona o Victoria.","fotos/michelada.jpg"]
     ]},
     {t:"Mezcal", dobles:true, items:[
       {n:"Wahaka Ensamble",c:400,b:2800},
@@ -801,14 +817,6 @@ bebidas: {
       {n:"De la Casa Espadín",c:190},
       {n:"Perro Pal Toche Tobalá",c:160,b:1500},
       {n:"Perro Pal Toche Espadín",c:135,b:1250}
-    ]},
-    {t:"Tequila", dobles:true, items:[
-      {n:"Don Julio 70 · 700 ml",c:260,b:2100},
-      {n:"Maestro Dobel · 700 ml",c:240,b:2100},
-      {n:"1800 Cristalino · 700 ml",c:240,b:2100},
-      {n:"Don Julio Reposado · 700 ml",c:240,b:1650},
-      {n:"Don Julio Blanco · 700 ml",c:220,b:1550},
-      {n:"José Cuervo Tradicional · 950 ml",c:210,b:1200}
     ]},
     {t:"Whisky", dobles:true, items:[
       {n:"Buchanan's 18 · 750 ml",c:540,b:4800},
@@ -828,6 +836,25 @@ bebidas: {
       {n:"Torres 5 · 700 ml",c:150,b:700},
       {n:"Fundador Cherry · 700 ml",c:120,b:700}
     ]},
+    {t:"Vodka", dobles:true, items:[
+      {n:"Grey Goose · 750 ml",c:250,b:2100},
+      {n:"Stolichnaya · 750 ml",c:210,b:950},
+      {n:"Absolut Azul · 750 ml",c:210,b:950},
+      {n:"Smirnoff · 1 L",c:200,b:850}
+    ]},
+    {t:"Tequila", dobles:true, items:[
+      {n:"Don Julio 70 · 700 ml",c:260,b:2100},
+      {n:"Maestro Dobel · 700 ml",c:240,b:2100},
+      {n:"1800 Cristalino · 700 ml",c:240,b:2100},
+      {n:"Don Julio Reposado · 700 ml",c:240,b:1650},
+      {n:"Don Julio Blanco · 700 ml",c:220,b:1550},
+      {n:"José Cuervo Tradicional · 950 ml",c:210,b:1200}
+    ]},
+    {t:"Ginebra", dobles:true, items:[
+      {n:"Hendrick's · 750 ml",c:260,b:2150},
+      {n:"Bombay · 700 ml",c:230,b:1450},
+      {n:"Tanqueray Ten · 750 ml",c:210,b:1300}
+    ]},
     {t:"Ron", dobles:true, items:[
       {n:"Zacapa · 750 ml",c:300,b:2700},
       {n:"Havana Club · 700 ml",c:240,b:1200},
@@ -836,16 +863,10 @@ bebidas: {
       {n:"Matusalén Platino · 750 ml",c:190,b:900},
       {n:"Bacardí Blanco · 700 ml",c:180,b:750}
     ]},
-    {t:"Vodka", dobles:true, items:[
-      {n:"Grey Goose · 750 ml",c:250,b:2100},
-      {n:"Stolichnaya · 750 ml",c:210,b:950},
-      {n:"Absolut Azul · 750 ml",c:210,b:950},
-      {n:"Smirnoff · 1 L",c:200,b:850}
-    ]},
-    {t:"Ginebra", dobles:true, items:[
-      {n:"Hendrick's · 750 ml",c:260,b:2150},
-      {n:"Bombay · 700 ml",c:230,b:1450},
-      {n:"Tanqueray Ten · 750 ml",c:210,b:1300}
+    {t:"Vino blanco", dobles:true, items:[
+      {n:"Casa Madero 2V",b:1100},
+      {n:"Calixa Blanco",b:900},
+      {n:"De la Casa",c:110}
     ]},
     {t:"Vino tinto", dobles:true, items:[
       {n:"Gran Ricardo Monte Xanic · ensamble ultra premium de Cabernet Sauvignon Merlot",b:3800},
@@ -854,45 +875,24 @@ bebidas: {
       {n:"Protos Roble",b:750},
       {n:"De la Casa",c:90,b:600}
     ]},
-    {t:"Vino blanco", dobles:true, items:[
-      {n:"Casa Madero 2V",b:1100},
-      {n:"Calixa Blanco",b:900},
-      {n:"De la Casa",c:110}
-    ]},
-    {t:"Champagne", dobles:true, items:[
-      {n:"Veuve Brut",b:3400},
-      {n:"Moët Brut",b:3200}
-    ]},
     {t:"Clericot", dobles:true, nota:"La jarra, $450.", items:[
       {n:"Clericot",c:160,b:450}
     ]},
-    {t:"Digestivos", items:[
-      ["Sambuca",240],
-      ["Anís Dulce Las Cadenas 750 ml",220],
-      ["Baileys",220],
-      ["Anís Dulce Chinchón 1 L",180],
-      ["Anís Campechano Chinchón 1 L",180],
-      ["Anís Seco Chinchón 1 L",180]
-    ]},
-    {t:"Cervezas", items:[
-      ["Michelada ★",95,"Corona o Victoria.","fotos/michelada.jpg"],
-      ["Michelob Ultra",50],
-      ["Modelo Especial",69],
-      ["Negra Modelo",69],
-      ["Corona",45],
-      ["Corona Cero",45],
-      ["Victoria",45]
-    ]},
-    {t:"Sin alcohol", items:[
-      ["Jarra de Fresada",215],
-      ["Jarra de Limonada o Naranjada",185],
-      ["Boost",85],
-      ["Fresada",70],
-      ["Limonada o Naranjada",60],
-      ["Topo Chico",45],
-      ["Refrescos",40],
-      ["Agua Mineral Peñafiel",40],
-      ["Botella de Agua Natural",35]
+    {t:"Coctelería", nota:"Todos a $250 el copeo.", items:[
+      ["Margarita ★",250,"","fotos/margarita.jpg"],
+      ["Mojito",250],
+      ["Caipiriña",250],
+      ["Paloma",250],
+      ["Daiquirí",250],
+      ["Piña Colada",250],
+      ["Medias de Seda",250],
+      ["Alfonso XIII",250],
+      ["Carajillo ★",250,"","fotos/carajillo.jpg"],
+      ["Mezcalina",250],
+      ["Espresso Martini",250],
+      ["Gin Tonic",250],
+      ["Tequila Sunrise",250],
+      ["Mermaid Mocktail",250,"Sin alcohol."]
     ]}
   ]
 },
