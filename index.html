@@ -549,7 +549,7 @@ body.sin-scroll{overflow:hidden}
 
 /* Sube este número cada vez que reemplaces una foto. Obliga a los
    navegadores a pedirla de nuevo en vez de usar la que tenían guardada. */
-const VER = "37";
+const VER = "38";
 
 const CONFIG = {
   // Deja "" en lo que todavía no tengas: el botón simplemente no aparece.
@@ -943,10 +943,23 @@ function marco(){
 }
 const conVer = s => s ? s + (s.indexOf('?') < 0 ? '?v=' + VER : '') : s;
 
+/* UNA FOTO QUE FALLA NO SE BORRA A LA PRIMERA.
+   Antes el onerror hacia this.remove(): bastaba un parpadeo de red, o pedir
+   la imagen justo mientras se purgaba el cache, para que el platillo se
+   quedara con el marco vacio hasta recargar. Pasa mas en el celular del
+   comensal, con senal mala. Ahora se reintenta una vez y solo entonces
+   se quita. (Arturo, 10 nov 2026: "ya no aparece, ayer aparecia".) */
+function reintentaFoto(img){
+  if(img.dataset.reintento){ img.remove(); return; }
+  img.dataset.reintento = '1';
+  const base = img.src.split('&r=')[0];
+  setTimeout(function(){ img.src = base + '&r=' + Date.now(); }, 800);
+}
+
 function foto(src){
   const m = marco();
   if(!src) return m;
-  return m + '<img src="' + conVer(src) + '" alt="" onerror="this.remove()">';
+  return m + '<img src="' + conVer(src) + '" alt="" onerror="reintentaFoto(this)">';
 }
 
 /* ---------- video de fondo ----------
