@@ -1,0 +1,17 @@
+FOTOS LISTAS, TODAVIA NO PUBLICADAS
+Los Pares 84x88 - 13 de noviembre de 2026
+
+Estos cuatro postres se venden y estan en el POS, pero NO aparecen en la
+carta impresa, y por eso no se subieron al menu digital: la regla es que
+carta impresa, POS y menu digital digan lo mismo.
+
+Cuando se imprima la carta nueva de enero 2027 y entren, solo hay que
+moverlas a la carpeta fotos/ y enlazarlas en Postres.
+
+  crepa-nutella.jpg        Crepas de Nutella        POS $145  clave 13013
+  platanos-flameados.jpg   Platanos Flameados       POS $120  clave ADM1790207179278
+  duraznos-almibar.jpg     Duraznos con Crema       POS  $80  clave 13002
+  helado.jpg               Helado (4 sabores)       POS  $70  claves 13008-13015
+
+Ojo con los nombres: en el POS los duraznos estan como "DURAZNOS CON CREMA",
+no como "duraznos en almibar". Hay que decidir cual nombre queda.
